@@ -1,0 +1,139 @@
+Comparing files KassaWin.cpp and Q:KASSAWIN.CPP
+***** KassaWin.cpp
+#include "CustDisplay.h"
+#include "TlHelp32.h"
+
+***** Q:KASSAWIN.CPP
+#include "CustDisplay.h"
+
+*****
+
+***** KassaWin.cpp
+
+bool IsKassaRunning()
+{
+  bool KassaFound=false;  
+        HANDLE handle = NULL;
+  try
+  {
+    // Create snapshot of the processes
+    handle = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+    PROCESSENTRY32 info;
+    info.dwSize = sizeof(PROCESSENTRY32);
+    // Get the first process
+    int loop = Process32First(handle, &info);
+    // If we failed to get the first process, throw an exception
+    while (loop) {
+                        if (info.th32ProcessID!=GetCurrentProcessId()) {
+              if (_strcmpi(info.szExeFile,"KASSA.exe")==0) KassaFound=true;
+                                if (_strcmpi(info.szExeFile,"KASMENU.exe")==0) KassaFound=true;
+                        }
+                  loop=Process32Next(handle,&info);
+                }
+  }
+        catch (...)
+        {
+        }
+  // Release handle of the snapshot
+  CloseHandle(handle);
+  return KassaFound;
+}
+
+***** Q:KASSAWIN.CPP
+
+
+*****
+
+***** KassaWin.cpp
+
+//#ifdef _DEBUG
+//      #ifdef MEMORY_LEAK_CHECK
+//              #include "MemLeakDetect.h"
+//              static CMemLeakDetect memLeakDetect;
+//      #endif
+//#endif
+
+
+int main(int argc, char *argv[]);
+***** Q:KASSAWIN.CPP
+
+int main(int argc, char *argv[]);
+*****
+
+***** KassaWin.cpp
+{
+
+         //CMemLeakDetect* pMem;
+
+         //pMem = new CMemLeakDetect();
+
+        // InitCommonControlsEx() is required on Windows XP if an application
+***** Q:KASSAWIN.CPP
+{
+        // InitCommonControlsEx() is required on Windows XP if an application
+*****
+
+***** KassaWin.cpp
+        // any shell tree view or shell list view controls.
+        // CShellManager *pShellManager = new CShellManager;
+
+***** Q:KASSAWIN.CPP
+        // any shell tree view or shell list view controls.
+        CShellManager *pShellManager = new CShellManager;
+
+*****
+
+***** KassaWin.cpp
+        SetRegistryKey(_T("KassaWin"));
+        ErrorLevel=0;
+
+        AfxMessageBox("start",MB_OK);
+
+        CString CommandLine=GetCommandLine();
+  CommandLine.MakeUpper();
+***** Q:KASSAWIN.CPP
+        SetRegistryKey(_T("KassaWin"));
+
+  CString CommandLine=GetCommandLine();
+  CommandLine.MakeUpper();
+*****
+
+***** KassaWin.cpp
+  if (CommandLine.Find("#")>=0) KassaTestConfigFlag=true;
+        
+        if (IsKassaRunning()) ErrorLevel=1;
+        else main(1,0);
+
+***** Q:KASSAWIN.CPP
+  if (CommandLine.Find("#")>=0) KassaTestConfigFlag=true;
+
+        main(1,0);
+
+*****
+
+***** KassaWin.cpp
+        // Delete the shell manager created above.
+        //if (pShellManager != NULL)
+        //{
+        //      delete pShellManager;
+        //}
+
+***** Q:KASSAWIN.CPP
+        // Delete the shell manager created above.
+        if (pShellManager != NULL)
+        {
+                delete pShellManager;
+        }
+
+*****
+
+***** KassaWin.cpp
+
+
+int CKassaWinApp::ExitInstance()
+{
+        return ErrorLevel;
+}
+***** Q:KASSAWIN.CPP
+*****
+

@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{5D3FBBE6-4C28-4385-9FE3-27780DF01EC2}") = "JMC-SHN", "JMC-SHN.vcxproj", "{3D0A1730-B251-4179-917D-E556335204EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3D0A1730-B251-4179-917D-E556335204EA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3D0A1730-B251-4179-917D-E556335204EA}.Debug|Win32.Build.0 = Debug|Win32
+		{3D0A1730-B251-4179-917D-E556335204EA}.Release|Win32.ActiveCfg = Release|Win32
+		{3D0A1730-B251-4179-917D-E556335204EA}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

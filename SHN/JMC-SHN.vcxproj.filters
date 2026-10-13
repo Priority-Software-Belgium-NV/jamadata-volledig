@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="SHN0000-auto.c"> <Filter>Auto</Filter> </ClCompile>
+    <ClCompile Include="BKH0001.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH0002.cpp"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH0005.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH0006.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH0009.cpp"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH0010.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH0011.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH0012.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH0014.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH0015.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH0017.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH0019.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH0020.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH0021.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH0023.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH0032.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH0057.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH0058.cpp"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH0059.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH0060.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH0061.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH0062.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH0063.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH0064.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH0065.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH0072.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH0073.cpp"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH0074.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH0079.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH0095.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="DRK0155.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0160.cpp"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0205.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0210.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0211.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0213.cpp"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0214.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0215.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0217.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0218.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0219.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0220.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0229.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0230.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0234.cpp"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0237.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0238.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0239.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0240.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0244-auto.c"> <Filter>Auto</Filter> </ClCompile>
+    <ClCompile Include="DRK0248-auto.c"> <Filter>Auto</Filter> </ClCompile>
+    <ClCompile Include="DRK0249-auto.c"> <Filter>Auto</Filter> </ClCompile>
+    <ClCompile Include="DRK0252-auto.c"> <Filter>Auto</Filter> </ClCompile>
+    <ClCompile Include="DRK0254-auto.c"> <Filter>Auto</Filter> </ClCompile>
+    <ClCompile Include="DRK0257-auto.c"> <Filter>Auto</Filter> </ClCompile>
+    <ClCompile Include="DRK0261.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0264.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0266.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0267.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0268.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0290.cpp"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0292.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0293.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0295.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0296.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0297.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0298.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0900.cpp"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK0941-auto.c"> <Filter>Auto</Filter> </ClCompile>
+    <ClCompile Include="DRK0944-auto.c"> <Filter>Auto</Filter> </ClCompile>
+    <ClCompile Include="SHN2141.cpp"> <Filter>Sources SHN</Filter> </ClCompile>
+    <ClCompile Include="DRK2194.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK2215.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK2240.cpp"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK2241.cpp"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK2282.cpp"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK2290.c"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK2291.cpp"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK2391.cpp"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK2392.cpp"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK2393.cpp"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK2394.cpp"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK2395.cpp"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK2397.cpp"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK2398.cpp"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK2501.cpp"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK2502.cpp"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="DRK2503.cpp"> <Filter>Sources DRK</Filter> </ClCompile>
+    <ClCompile Include="BKH2800.cpp"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH2801.cpp"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH2802.cpp"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH2900.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH2911.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH2918.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH2919.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH2921.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH2922.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH2931.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="BKH2961.c"> <Filter>Sources BKH</Filter> </ClCompile>
+    <ClCompile Include="std\Markup.cpp"> <Filter>JamaStd</Filter> </ClCompile>
+    <ClCompile Include="std\ovlfunc.c"> <Filter>JamaStd</Filter> </ClCompile>
+    <ClCompile Include="std\ovlhand.cpp"> <Filter>JamaStd</Filter> </ClCompile>
+    <ClCompile Include="ovlShare.c"> <Filter>JamaStd</Filter> </ClCompile>
+    <ClCompile Include="CppShare.cpp"> <Filter>JamaStd</Filter> </ClCompile>
+    <ClInclude Include="ovlShare.h"> <Filter>JamaStd</Filter> </ClInclude>
+    <ClInclude Include="par0155.c"> <Filter>PAR-Files</Filter> </ClInclude>
+    <ClInclude Include="par0237.c"> <Filter>PAR-Files</Filter> </ClInclude>
+    <ClInclude Include="PAR0240.C"> <Filter>PAR-Files</Filter> </ClInclude>
+    <ClInclude Include="PAR0244.C"> <Filter>PAR-Files</Filter> </ClInclude>
+    <ClInclude Include="PAR0248.C"> <Filter>PAR-Files</Filter> </ClInclude>
+    <ClInclude Include="PAR0249.C"> <Filter>PAR-Files</Filter> </ClInclude>
+    <ClInclude Include="PAR0252.C"> <Filter>PAR-Files</Filter> </ClInclude>
+    <ClInclude Include="PAR0254.C"> <Filter>PAR-Files</Filter> </ClInclude>
+    <ClInclude Include="PAR0257.C"> <Filter>PAR-Files</Filter> </ClInclude>
+    <ClInclude Include="PAR0941.C"> <Filter>PAR-Files</Filter> </ClInclude>
+    <ClInclude Include="PAR0944.C"> <Filter>PAR-Files</Filter> </ClInclude>
+    <ClInclude Include="PARETIK.C"> <Filter>PAR-Files</Filter> </ClInclude>
+    <ClInclude Include="PARLAY.C"> <Filter>PAR-Files</Filter> </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="JamaStd">
+      <UniqueIdentifier>{106b2a21-11f8-4e1d-98ef-32b3e3bfd952}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Sources BKH">
+      <UniqueIdentifier>{edbb665b-4271-4564-959e-f7cb85e18cd5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Sources DRK">
+      <UniqueIdentifier>{2248fee1-671a-4bca-a682-2a106d299d16}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Auto">
+      <UniqueIdentifier>{25ffe3de-db84-4cc3-aa32-8ee36bd0abd7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Sources SHN">
+      <UniqueIdentifier>{384b53c9-f7de-42dd-ab41-cc95c30e6df2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="PAR-Files">
+      <UniqueIdentifier>{45abcbf9-1d0c-4e73-bf7a-74aaa48303f0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

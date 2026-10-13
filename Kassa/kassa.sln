@@ -1,0 +1,100 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1300
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "banksys", "Banksys\banksys.vcxproj", "{38E2C8CD-194E-97BB-1621-9F1CA258FEE5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cardfon", "Cardfon\Cardfon.vcxproj", "{A29C8E6D-CA6F-04C9-15ED-7CAD945260E1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LargDisp", "LargDisp\LargDisp.vcxproj", "{F337BE0B-2308-07B4-3EA2-37552E80533E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Kassa", "KassaWin\KassaWin.vcxproj", "{6DABAB14-9272-4B4A-BFF9-0D706C9FB0AD}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KasMenu", "KasMnWin\KasMnWin.vcxproj", "{6BAB983C-672D-476B-9A2D-53376BA8C504}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KasParm", "KasPrWin\KasPrWin.vcxproj", "{D2C38F8A-B663-4845-B740-B47DAF89CDAC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KASKEYS", "kaskeys\KASKEYS.vcxproj", "{060EE2C4-8359-4183-A9D2-C574D2359DF9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+		Template|Win32 = Template|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38E2C8CD-194E-97BB-1621-9F1CA258FEE5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{38E2C8CD-194E-97BB-1621-9F1CA258FEE5}.Release|Win32.ActiveCfg = Release|Win32
+		{38E2C8CD-194E-97BB-1621-9F1CA258FEE5}.Release|Win32.Build.0 = Release|Win32
+		{38E2C8CD-194E-97BB-1621-9F1CA258FEE5}.Template|Win32.ActiveCfg = Release|Win32
+		{38E2C8CD-194E-97BB-1621-9F1CA258FEE5}.Template|Win32.Build.0 = Release|Win32
+		{A29C8E6D-CA6F-04C9-15ED-7CAD945260E1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A29C8E6D-CA6F-04C9-15ED-7CAD945260E1}.Release|Win32.ActiveCfg = Release|Win32
+		{A29C8E6D-CA6F-04C9-15ED-7CAD945260E1}.Release|Win32.Build.0 = Release|Win32
+		{A29C8E6D-CA6F-04C9-15ED-7CAD945260E1}.Template|Win32.ActiveCfg = Template|Win32
+		{A29C8E6D-CA6F-04C9-15ED-7CAD945260E1}.Template|Win32.Build.0 = Template|Win32
+		{F337BE0B-2308-07B4-3EA2-37552E80533E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F337BE0B-2308-07B4-3EA2-37552E80533E}.Release|Win32.ActiveCfg = Release|Win32
+		{F337BE0B-2308-07B4-3EA2-37552E80533E}.Release|Win32.Build.0 = Release|Win32
+		{F337BE0B-2308-07B4-3EA2-37552E80533E}.Template|Win32.ActiveCfg = Template|Win32
+		{F337BE0B-2308-07B4-3EA2-37552E80533E}.Template|Win32.Build.0 = Template|Win32
+		{6DABAB14-9272-4B4A-BFF9-0D706C9FB0AD}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6DABAB14-9272-4B4A-BFF9-0D706C9FB0AD}.Debug|Win32.Build.0 = Debug|Win32
+		{6DABAB14-9272-4B4A-BFF9-0D706C9FB0AD}.Release|Win32.ActiveCfg = Release|Win32
+		{6DABAB14-9272-4B4A-BFF9-0D706C9FB0AD}.Release|Win32.Build.0 = Release|Win32
+		{6DABAB14-9272-4B4A-BFF9-0D706C9FB0AD}.Template|Win32.ActiveCfg = Release|Win32
+		{6DABAB14-9272-4B4A-BFF9-0D706C9FB0AD}.Template|Win32.Build.0 = Release|Win32
+		{6BAB983C-672D-476B-9A2D-53376BA8C504}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6BAB983C-672D-476B-9A2D-53376BA8C504}.Debug|Win32.Build.0 = Debug|Win32
+		{6BAB983C-672D-476B-9A2D-53376BA8C504}.Release|Win32.ActiveCfg = Release|Win32
+		{6BAB983C-672D-476B-9A2D-53376BA8C504}.Release|Win32.Build.0 = Release|Win32
+		{6BAB983C-672D-476B-9A2D-53376BA8C504}.Template|Win32.ActiveCfg = Release|Win32
+		{6BAB983C-672D-476B-9A2D-53376BA8C504}.Template|Win32.Build.0 = Release|Win32
+		{D2C38F8A-B663-4845-B740-B47DAF89CDAC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D2C38F8A-B663-4845-B740-B47DAF89CDAC}.Debug|Win32.Build.0 = Debug|Win32
+		{D2C38F8A-B663-4845-B740-B47DAF89CDAC}.Release|Win32.ActiveCfg = Release|Win32
+		{D2C38F8A-B663-4845-B740-B47DAF89CDAC}.Release|Win32.Build.0 = Release|Win32
+		{D2C38F8A-B663-4845-B740-B47DAF89CDAC}.Template|Win32.ActiveCfg = Release|Win32
+		{D2C38F8A-B663-4845-B740-B47DAF89CDAC}.Template|Win32.Build.0 = Release|Win32
+		{060EE2C4-8359-4183-A9D2-C574D2359DF9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{060EE2C4-8359-4183-A9D2-C574D2359DF9}.Debug|Win32.Build.0 = Debug|Win32
+		{060EE2C4-8359-4183-A9D2-C574D2359DF9}.Release|Win32.ActiveCfg = Release|Win32
+		{060EE2C4-8359-4183-A9D2-C574D2359DF9}.Release|Win32.Build.0 = Release|Win32
+		{060EE2C4-8359-4183-A9D2-C574D2359DF9}.Template|Win32.ActiveCfg = Release|Win32
+		{060EE2C4-8359-4183-A9D2-C574D2359DF9}.Template|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6FC9AD04-6B4C-4938-9ED5-00CE4EB00031}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://172.27.200.22:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Banksys\\banksys.vcxproj
+		SccProjectName1 = Banksys
+		SccLocalPath1 = Banksys
+		SccProjectUniqueName2 = Cardfon\\Cardfon.vcxproj
+		SccProjectName2 = Cardfon
+		SccLocalPath2 = Cardfon
+		SccProjectUniqueName3 = LargDisp\\LargDisp.vcxproj
+		SccProjectName3 = LargDisp
+		SccLocalPath3 = LargDisp
+		SccProjectUniqueName4 = KassaWin\\KassaWin.vcxproj
+		SccProjectName4 = KassaWin
+		SccLocalPath4 = KassaWin
+		SccProjectUniqueName5 = KasMnWin\\KasMnWin.vcxproj
+		SccProjectName5 = KasMnWin
+		SccLocalPath5 = KasMnWin
+		SccProjectUniqueName6 = KasPrWin\\KasPrWin.vcxproj
+		SccProjectName6 = KasPrWin
+		SccLocalPath6 = KasPrWin
+		SccProjectUniqueName7 = kaskeys\\KASKEYS.vcxproj
+		SccProjectName7 = kaskeys
+		SccLocalPath7 = kaskeys
+	EndGlobalSection
+EndGlobal

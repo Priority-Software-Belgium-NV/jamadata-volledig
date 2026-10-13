@@ -1,0 +1,384 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "targetver.h"
+#endif
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_JMWSERVER_DIALOG DIALOGEX 0, 0, 466, 337
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "JMS - Jamadata Windows Server"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_TabSelDlg,"SysTabControl32",0x0,5,6,456,324
+END
+
+IDD_JMPASSWORD DIALOGEX 0, 0, 144, 36
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW | WS_EX_WINDOWEDGE
+CAPTION "Paswoord voor Jamadata-Utilitys"
+FONT 10, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_JMPASSWORDTEXT,9,12,126,12,ES_UPPERCASE | ES_AUTOHSCROLL | ES_WANTRETURN
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,7,6,0
+ PRODUCTVERSION 1,7,6,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "Priority Software Belgium nv"
+            VALUE "FileDescription", "Jamadata Database"
+            VALUE "FileVersion", "1.7.6.0"
+            VALUE "InternalName", "JMS.exe"
+            VALUE "LegalCopyright", "(c) 2010-2024 Priority Software Belgium nv.  All rights reserved."
+            VALUE "OriginalFilename", "JMS.exe"
+            VALUE "ProductName", "Jamadata Database"
+            VALUE "ProductVersion", "1.7.6.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_JMWSERVER_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 363
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 211
+    END
+
+    IDD_JMPASSWORD, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 137
+        TOPMARGIN, 12
+        BOTTOMMARGIN, 29
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDP_SOCKETS_INIT_FAILED "Windows sockets initialization failed."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Dutch (Belgium) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NLB)
+LANGUAGE LANG_DUTCH, SUBLANG_DUTCH_BELGIAN
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DATABASEDLG DIALOGEX 0, 0, 448, 296
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "Check/Calc",IDC_BtnCheck,349,127,60,18,WS_DISABLED
+    PUSHBUTTON      "Export 2 FAS",IDC_BtnExport2FAS,349,105,60,18,WS_DISABLED
+    GROUPBOX        "Database bestanden",IDC_STATIC,7,80,438,110,BS_CENTER
+    LISTBOX         IDC_LSTAVAILABLEDB,127,105,47,66,LBS_SORT | LBS_MULTIPLESEL | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Laden >>>",IDC_BTNMOUNT,191,104,64,18,WS_DISABLED
+    LISTBOX         IDC_LSTMOUNTEDDB,272,105,47,66,LBS_SORT | LBS_MULTIPLESEL | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "<<< Ontladen",IDC_BTNUNMOUNT,191,128,64,18,WS_DISABLED
+    CTEXT           "Ingeladen in server",IDC_STATIC,245,91,94,12
+    PUSHBUTTON      "Vernieuwen",IDC_BTNREFRESH,191,152,64,18
+    CTEXT           "Beschikbaar in folder",IDC_STATIC,96,90,107,12
+    COMBOBOX        IDC_AUTOZIPTIME,128,58,39,67,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    RTEXT           "Auto ZIP-Backup :",IDC_STATIC,45,59,79,11
+    PUSHBUTTON      "Dump 2 Copy",IDC_BtnDump2Copy,350,151,60,18,WS_DISABLED
+END
+
+IDD_PRINTERSDLG DIALOGEX 0, 0, 448, 296
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "Test Print",IDC_BUTTON1,245,67,50,14
+END
+
+IDD_TERMINALSDLG DIALOGEX 0, 0, 448, 296
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+END
+
+IDD_MAILDLG DIALOGEX 0, 0, 448, 296
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "Send Test Mail",IDC_btnSendTestMail,342,258,96,30
+    EDITTEXT        IDC_EDIT1,168,24,180,12,ES_AUTOHSCROLL
+    RTEXT           "Uitgaande SMTP-server : ",IDC_STATIC,6,24,162,12
+    LISTBOX         IDC_LIST1,168,42,42,12,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    RTEXT           "Poort SMTP-server (standaard 25) : ",IDC_STATIC,12,42,156,12
+END
+
+IDD_LOGGINGDLG DIALOGEX 0, 0, 448, 296
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LISTBOX         IDC_LstLogging,7,7,435,258,LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL
+END
+
+IDD_UTILITYSDLG DIALOGEX 0, 0, 448, 296
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "Update Systeembestanden",IDC_STATIC,6,6,432,36
+    PUSHBUTTON      "UPD",IDC_BTNSYSUPDATE,408,18,24,12,NOT WS_TABSTOP
+    EDITTEXT        IDC_EDITSYSVALUE,168,18,234,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITSTRINGLEN,144,18,18,12,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDITSYSPOS,108,18,30,12,ES_AUTOHSCROLL | ES_NUMBER
+    COMBOBOX        IDC_CBOUPSYSTYPE,60,18,42,270,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_CBOSYSSELECT,12,18,42,270,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_DATABASEDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        TOPMARGIN, 7
+    END
+
+    IDD_PRINTERSDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        TOPMARGIN, 7
+    END
+
+    IDD_TERMINALSDLG, DIALOG
+    BEGIN
+    END
+
+    IDD_MAILDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 438
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 288
+    END
+
+    IDD_LOGGINGDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        TOPMARGIN, 7
+    END
+
+    IDD_UTILITYSDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 441
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 289
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\JMS.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""     // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\JMS.ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_UTILITYSDLG DLGINIT
+BEGIN
+    IDC_CBOUPSYSTYPE, 0x403, 5, 0
+0x6863, 0x7261, "\000" 
+    IDC_CBOUPSYSTYPE, 0x403, 4, 0
+0x6e69, 0x0074, 
+    IDC_CBOUPSYSTYPE, 0x403, 6, 0
+0x2d75, 0x6e69, 0x0074, 
+    IDC_CBOUPSYSTYPE, 0x403, 5, 0
+0x6f6c, 0x676e, "\000" 
+    IDC_CBOUPSYSTYPE, 0x403, 6, 0
+0x6c66, 0x616f, 0x0074, 
+    IDC_CBOUPSYSTYPE, 0x403, 7, 0
+0x6f64, 0x6275, 0x656c, "\000" 
+    IDC_CBOUPSYSTYPE, 0x403, 6, 0
+0x646a, 0x7461, 0x0065, 
+    IDC_CBOUPSYSTYPE, 0x403, 6, 0
+0x6574, 0x736b, 0x0074, 
+    0
+END
+
+IDD_DATABASEDLG DLGINIT
+BEGIN
+    IDC_AUTOZIPTIME, 0x403, 2, 0
+0x002d, 
+    IDC_AUTOZIPTIME, 0x403, 6, 0
+0x3030, 0x3075, 0x0030, 
+    IDC_AUTOZIPTIME, 0x403, 6, 0
+0x3130, 0x3075, 0x0030, 
+    IDC_AUTOZIPTIME, 0x403, 6, 0
+0x3230, 0x3075, 0x0030, 
+    IDC_AUTOZIPTIME, 0x403, 6, 0
+0x3330, 0x3075, 0x0030, 
+    IDC_AUTOZIPTIME, 0x403, 6, 0
+0x3430, 0x3075, 0x0030, 
+    IDC_AUTOZIPTIME, 0x403, 6, 0
+0x3530, 0x3075, 0x0030, 
+    IDC_AUTOZIPTIME, 0x403, 6, 0
+0x3630, 0x3075, 0x0030, 
+    IDC_AUTOZIPTIME, 0x403, 6, 0
+0x3730, 0x3075, 0x0030, 
+    IDC_AUTOZIPTIME, 0x403, 6, 0
+0x3032, 0x3075, 0x0030, 
+    IDC_AUTOZIPTIME, 0x403, 6, 0
+0x3132, 0x3075, 0x0030, 
+    IDC_AUTOZIPTIME, 0x403, 6, 0
+0x3232, 0x3075, 0x0030, 
+    IDC_AUTOZIPTIME, 0x403, 6, 0
+0x3332, 0x3075, 0x0030, 
+    0
+END
+
+#endif    // Dutch (Belgium) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\JMS.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"     // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,685 @@
+__declspec(dllimport) short int scrnum;
+__declspec(dllimport) short int errnum;
+__declspec(dllimport) short int sys_ref;
+
+#pragma pack(1)
+#pragma data_seg(".dsovl")
+#pragma const_seg(".dsovl")
+#pragma bss_seg(".dsovl")
+static char zzvw;
+
+typedef unsigned short uint16;
+typedef short int int16;
+#pragma warning (disable: 4716 4731)
+
+#define FOREVER         while(1)
+#define YES             1
+#define NO              0
+
+#define CALL_DEPT       50
+#define MAX_PREV        50
+#define MAX_OVL         4000
+
+short int Ovl2Tab[MAX_OVL+1];
+
+extern OvlCount;
+extern struct s_InitOvlTab {
+	int OvlNr;
+  char *Version;
+	void (*OvlRout)();
+  char* (*OvlGetD)();  // in ???0000-auto.c staat dit als void (*OvlGetD)()
+	char* DataBegin;
+	long  DataLen;
+	char* CopyBuf;
+  char ScrName[13];
+}	OvlTab[];
+
+unsigned int onext; // dummy, wordt niet gebruikt, dient voor linker. In Win32 wordt ExtraSTOSize gebruikt !
+
+static long CallSavedEsp[CALL_DEPT];
+static char* CallSavedDataSegment[CALL_DEPT];
+static unsigned short CallSavedOvlNumber[CALL_DEPT];
+static long valesp, MainSavedEsp;
+static int CallIx=0;
+static int  PreviousOvlNr[MAX_PREV]={0};
+static int  ovlptr=0;/* pointer to currently executing overlay */
+short  int  OvlNumber=0;
+short  int  JMC4TEST=0;
+static short int ovlloaded=0;
+
+void reschedule() {
+  _sleep(1000);
+};
+
+void sendtask(short int destprc,short int type,short int function,char *info,short int len)
+{
+	int16 *pi;
+
+	if (type==3 && function==11) {
+	  pi=(int16 *)info;
+		scraddf(pi[0],pi[1],pi[2],pi[3]);
+	}
+	if (type==6) EDBsendtask(destprc,type,function,info,len);
+}
+
+void sys_err(code,parm)
+int16 code, parm;
+{
+  char errbuf[90];
+ 
+  sprintf(errbuf,"SysErr Code:%3d Parm:%3d",code,parm);
+	SvcErr(0,errbuf);
+}
+
+extern unsigned short testvarcpp;
+ 
+int16 procid=61;
+int16 prc_num[3];
+int16 ThisPostNr;
+int16 ThisScreenNr;
+int16 busy_cnt;
+unsigned short jamin1[10];
+char info[2000];
+char SplLastPrinted[250];
+
+int16 retcall=0;      /* ret value for OVLCALL(), filled in at called overlay */
+                    /* must be filled in just before ovlexit(-1) !!!!!!!!!! */
+                                     /* retcall is set to zero in OVLCALL() */
+
+int16 parmcall[8]={0}; /* parameters passed on to called overlay. Must be used*/
+                     /* just after entering the overlay, so the are free for*/
+                                                       /* the next ovlcall()*/
+
+int ovltest(number)
+unsigned short number;
+{
+	if (number<=0 || number>MAX_OVL) return 0;
+	if (Ovl2Tab[number]==-1) return 0;
+	return 1;
+}
+
+short int ovlreset(ProcIdCaller)
+short int ProcIdCaller;
+{
+  ovlptr=0;
+	OvlNumber=2; // volgende OVL die we oproepen is 1
+	errnum=0;
+  parmcall[0]=ProcIdCaller;
+	while (CallIx>0) { // OvlCall was active ...
+		CallIx--;
+    free(CallSavedDataSegment[CallIx]);
+    CallSavedDataSegment[CallIx]=0;
+  }
+  valesp=MainSavedEsp;
+	__asm{
+		mov esp,dword ptr valesp;
+		pop ebp
+	}
+	return retcall;
+}
+
+short int ovlexit(nr)
+short int nr;
+{
+	OvlNumber=nr;
+	if (nr==-2 && getfa("JMC-RSTR.CMD")!=-1) ovlreset(1);
+	if (CallIx>0) { // OvlCall was active ...
+		CallIx--;
+    OvlNumber=CallSavedOvlNumber[CallIx];
+    if (CallSavedDataSegment[CallIx]!=(char*) 0) {
+      memcpy((char *)OvlTab[Ovl2Tab[OvlNumber]].DataBegin,CallSavedDataSegment[CallIx],OvlTab[Ovl2Tab[OvlNumber]].DataLen);
+      free(CallSavedDataSegment[CallIx]);
+      CallSavedDataSegment[CallIx]=0;
+    }
+    scrclose(3);
+    scropen(3,OvlTab[Ovl2Tab[OvlNumber]].ScrName); scrnum=0;
+  	valesp=CallSavedEsp[CallIx];
+		__asm{
+			mov esp,dword ptr valesp;
+			pop ebp
+		}
+	}
+	else { // ovlcall not active (level==0) 
+  	valesp=MainSavedEsp;
+		__asm{
+			mov esp,dword ptr valesp;
+			pop ebp
+		}
+	}
+	return retcall;
+}
+
+short int ovlcall(nr,bits)
+short int nr;
+unsigned short bits;
+{
+	if (CallIx==CALL_DEPT) {
+		return retcall;
+	}
+	if (nr>=1 && nr<=MAX_OVL && Ovl2Tab[nr]>=0) {
+    CallSavedDataSegment[CallIx] = (char *)malloc(OvlTab[Ovl2Tab[OvlNumber]].DataLen);
+    CallSavedOvlNumber[CallIx] = OvlNumber;
+    if (CallSavedDataSegment[CallIx]!=(char*)0) {
+      memcpy(CallSavedDataSegment[CallIx],(char *)OvlTab[Ovl2Tab[OvlNumber]].DataBegin,OvlTab[Ovl2Tab[OvlNumber]].DataLen);
+    }
+		memcpy((char *)OvlTab[Ovl2Tab[nr]].DataBegin,OvlTab[Ovl2Tab[nr]].CopyBuf,OvlTab[Ovl2Tab[nr]].DataLen);
+		__asm{
+			push ebp
+			mov dword ptr valesp, esp
+		}
+		CallSavedEsp[CallIx]=valesp;
+		CallIx++; OvlNumber=nr;
+
+    scrclose(3);
+    scropen(3,OvlTab[Ovl2Tab[nr]].ScrName); scrnum=0;
+		OvlTab[Ovl2Tab[nr]].OvlRout(bits); 
+		ovlexit(-1); // stel dat de ovl gewoon return doet ... mag normaal niet
+	}   
+	// moest hij niet bestaan, keer dan gewoon terug naar hoger niveau 
+	return retcall;
+}
+
+void OvlExec(bits)
+unsigned short bits;
+{
+	if (OvlNumber>=1 && OvlNumber<=MAX_OVL && Ovl2Tab[OvlNumber]>=0) {
+    memcpy((char *)OvlTab[Ovl2Tab[OvlNumber]].DataBegin,OvlTab[Ovl2Tab[OvlNumber]].CopyBuf,OvlTab[Ovl2Tab[OvlNumber]].DataLen);
+		__asm{
+			push ebp
+			mov dword ptr valesp, esp
+		}
+		MainSavedEsp=valesp;
+
+    scropen(3,OvlTab[Ovl2Tab[OvlNumber]].ScrName); scrnum=0;
+    OvlTab[Ovl2Tab[OvlNumber]].OvlRout(bits);
+		ovlexit(-1); // stel dat de ovl gewoon return doet ... mag normaal niet
+ 	}
+	// moest hij niet bestaan, keer dan gewoon terug naar hoger niveau 
+}
+
+void InitOvl()
+{
+	int i,j;
+	unsigned int pZeroDataBegin, pZeroDataEnd, pPresetDataBegin, pPresetDataEnd;
+	char *pNext;
+
+  for (i=1; i<=MAX_OVL; i++) Ovl2Tab[i]=-1;  // om te weten welke gebruikt zijn ... begint vanaf 1 tot MAX_OVL, er daarom MAX_OVL+1 in de declaratie ...
+
+	for (i=0; i<OvlCount; i++) {
+    int OvlNr=OvlTab[i].OvlNr;
+    if (OvlNr<=0 || OvlNr>MAX_OVL) continue;
+
+		// om de index in OvlTab snel te vinden
+    Ovl2Tab[OvlNr]=i;
+    // vervolledig de OvlTab
+    OvlTab[i].DataBegin=OvlTab[i].OvlGetD();
+    memcpy(OvlTab[i].ScrName,OvlTab[i].Version,8);
+    for (j=0; j<8; j++) if (OvlTab[i].ScrName[j]==' ') break;
+    OvlTab[i].ScrName[j++]='.';
+    OvlTab[i].ScrName[j++]='s';
+    OvlTab[i].ScrName[j++]='c';
+    OvlTab[i].ScrName[j++]='r';
+    OvlTab[i].ScrName[j++]='\0';
+  }
+	pNext=&zzvw;
+	for (i=i-1; i>=0; i--) {
+		OvlTab[i].DataLen=(unsigned)pNext - (unsigned) OvlTab[i].DataBegin;
+		pNext=OvlTab[i].DataBegin;
+		if (OvlTab[i].DataLen>0) {
+			OvlTab[i].CopyBuf	= (char *)malloc(OvlTab[i].DataLen);
+			memcpy(OvlTab[i].CopyBuf,(char *)OvlTab[i].DataBegin,OvlTab[i].DataLen);
+		}
+	}
+}
+
+void EndOvl()
+{
+	int i;
+
+	for (i=0; i<OvlCount; i++) {
+    if (OvlTab[i].CopyBuf!=0) {
+			free(OvlTab[i].CopyBuf);
+			OvlTab[i].CopyBuf=0;
+		}
+	}
+}
+
+void RunOvlSystem()
+{
+  int prevptr;
+  for (ovlptr=0; ovlptr<MAX_PREV; ovlptr++) PreviousOvlNr[ovlptr]=-1;
+/*
+	max_code=(data_seg-code_seg)*16-(unsigned)&ovlcod-16; // 16 veiligheid 
+  max_data=ofifo - (unsigned)&ovldat - 16;
+*/
+	InitOvl();
+  ovlptr=0;
+	OvlNumber=1; // volgende OVL die we oproepen is 1
+	errnum=0;
+  FOREVER {
+    OvlExec(0);
+		// OvlNumber wordt onderweg gevuld met nieuwe gewenst ovl-nr
+    scrclose(3);
+		scrwait();
+		prtclose(); /* to be shure */
+    fasclos(-3);/* mark files to NOT-ACTIVE */
+    if ((OvlNumber>0)&&(OvlNumber<=MAX_OVL)) {
+      prevptr=ovlptr; /* save value */
+      ovlptr++; if (ovlptr==MAX_PREV) ovlptr=0;
+      PreviousOvlNr[ovlptr]=OvlNumber;
+      ovlloaded=ovltest(OvlNumber);
+      if (!ovlloaded) {
+        PreviousOvlNr[ovlptr]=-1;
+        ovlptr=prevptr; /* restore value */
+      }
+    }
+    else if (OvlNumber==-1) {
+      prevptr=ovlptr-1;
+      if (prevptr<0) prevptr=MAX_PREV-1;
+      if (PreviousOvlNr[prevptr]>0) {     /* previous overlay */
+        OvlNumber = PreviousOvlNr[prevptr]; PreviousOvlNr[ovlptr]=-1;  /* erase current overlay */
+        ovlptr=prevptr; /* pointer adjust */
+      }
+    }
+    else if (OvlNumber==-2) {  // exit (WM_CLOSE received and pOvlExitRout ingevuld
+      break;
+    }
+    else errnum=5; /* overlay not found */
+  }
+	EndOvl();
+}
+
+sleep(procid,stat)
+int16 procid, stat;
+{
+	if (stat==-1) {
+		EndOvl();
+		_moexit(0);
+		_exit(0);
+	}
+}
+
+copy(s,d,len)
+char *s, *d;
+int16 len;
+{
+	while (len-->0) *d++=*s++;
+}
+
+zeroL(p, len)
+char *p;
+long len;
+{ 
+  while (len-->0) *p++=0;
+}
+
+
+zero(p, len)
+char *p;
+int16 len;
+{ 
+  while (len-->0) *p++=0;
+}
+
+// uit ovlfunc
+
+#define MAX_TAB         30
+
+struct {
+  int16 len;
+  char *info;
+} tab[MAX_TAB] = {0};
+
+struct{
+  char fval[4];
+  char tval[4];
+  double coef;
+} vtab[30] = {0};
+
+double valu_cnv(ps_van_,ps_naar_,bd_,bd_afr_)
+char *ps_van_, *ps_naar_;
+double bd_, bd_afr_;
+{
+  int16 pv_,pn_;
+  double wrk1_,wrk2_,wrk3_,add_,result_;
+ 
+  result_=bd_;
+  if(cmpstr(ps_van_,ps_naar_,3)==0) goto afronden;/* gelijke valuta */
+  for(pv_=0;pv_<30;pv_++){/* zoek rechtstreekse combinatie */
+    if(vtab[pv_].fval[0]=='\0') {pv_=30;break;}
+    if(cmpstr(ps_van_,vtab[pv_].fval,3)) continue;
+    if(cmpstr(ps_naar_,vtab[pv_].tval,3)) continue;
+    break;
+  }
+  if(pv_<30 && vtab[pv_].coef){
+    result_/=vtab[pv_].coef; goto afronden;
+  }
+  for(pv_=0;pv_<30;pv_++){/* zoek OMGEKEERD een rechtstreekse combinatie */
+    if(vtab[pv_].fval[0]=='\0') {pv_=30;break;}
+    if(cmpstr(ps_van_,vtab[pv_].tval,3)) continue;
+    if(cmpstr(ps_naar_,vtab[pv_].fval,3)) continue;
+    break;
+  }
+  if(pv_<30 && vtab[pv_].coef){
+    result_*=vtab[pv_].coef; goto afronden;
+  }
+  wrk1_=0; wrk2_=0;
+  for(pv_=0;pv_<30;pv_++){/* zoek 1-ste conversie */
+    if(vtab[pv_].fval[0]=='\0') {pv_=30;break;}
+    if(cmpstr(ps_van_,vtab[pv_].fval,3)) continue;
+    break;
+  }
+  if(pv_<30){
+    wrk1_=vtab[pv_].coef;
+  }
+  for(pn_=0;pn_<30;pn_++){/* zoek 2-de conversie */
+    if(vtab[pn_].fval[0]=='\0') {pn_=30;break;}
+    if(cmpstr(ps_naar_,vtab[pn_].fval,3)) continue;
+    if(cmpstr(vtab[pn_].tval,vtab[pv_].tval,3)) continue;
+    break;
+  }
+  if(pn_<30){
+    wrk2_=vtab[pn_].coef;
+  }
+  if(wrk1_==0 || wrk2_==0){errnum=57; goto endsr;}
+  result_/=wrk1_; result_*=wrk2_;
+ 
+  afronden:;
+  add_=0.500001;
+  if(result_<0) add_=-add_;
+  if(bd_afr_>0.00001){
+    if(bd_afr_<=1.){
+      wrk1_=(long int)result_;
+      wrk2_=result_-wrk1_;
+    } else{wrk1_=0.;wrk2_=result_;}
+    wrk3_=wrk2_/bd_afr_;
+    wrk2_=(double)((long)((wrk2_/bd_afr_)+add_)) * bd_afr_;
+    result_=wrk1_+wrk2_;
+  }
+  endsr:;
+  return (double)(result_);
+}
+
+// uit ovlfunc
+
+#define SYSMNGR         4
+#define FASMNGR         5
+
+static int16  *pi = 0;
+static int16  check_type = NO;
+int16  reqproc=0, ilength=0;
+
+// zou eigelijk wegmogen zo niet USEJMW, maar is toch nodig omdat JamaCon hem niet biedt.
+// onderstaande code werkt niet in JamaCon maar zo komen er geen linker errors
+
+waittask(typ,fun)
+int16 typ, fun;
+{
+  char *ps, *pd;
+  int16 type, function, len;
+ 
+  FOREVER {
+    gettask(&reqproc,&type,&function,info,&ilength);
+    if ((fun==function)&&(typ==type)) {check_type=YES; break;}
+    switch (type) {
+      case 3:
+        switch (function) {
+          case 103:
+            pi = (int16 *) &info[0]; pd = (char *) *pi++; len = *pi++;
+            ps = (char *) pi;
+            while (len-->0) *pd++ = *ps++;
+	    goto next;
+	  case 200:
+	    check_type=NO; errnum=0;
+	    ovlexit(1);
+	    goto next;/* wordt nooit uitgevoerd */
+        }
+        break;
+    }
+    if (check_type) sys_err(121,type*256+function);
+    next:;
+  }
+}
+
+sysclose()
+{
+  EDBsendtask(SYSMNGR,5,2,&sys_ref,2);
+  sys_ref = -1;
+}
+ 
+void sysget(pos,len,d)
+char *d;
+int16 pos,len;
+{
+  char *p;
+ 
+  pi = (int16 *) &info[0];
+  *pi++ = sys_ref; *pi++ = pos; *pi = len;
+  EDBsendtask(SYSMNGR,5,3,info,6);
+  waittask(5,102);
+  p = info; while (len-->0) *d++ = *p++;
+  return;
+}
+
+sysput(pos,len,s)
+char *s;
+int16 pos,len;
+{
+  char *p;
+
+  pi = (int16 *) info;
+  *pi++ = sys_ref; *pi++ = pos; *pi++ = len; ilength = len + 6;
+  p = &info[6]; while (len-->0) *p++ = *s++;
+  EDBsendtask(SYSMNGR,5,4,info,ilength);
+}
+
+sysopen(ext,path)
+char *ext, *path;
+{
+  int16 i;
+ 
+  if (sys_ref != -1) sysclose();
+  if (*ext=='\0') ext="FAS";
+  for (i=0; i<3; i++) info[i]=*ext++;
+  info[3] ='\0';
+  for (i=4; i<14; i++) info[i]=*path++;
+  info[14]='\0';
+  EDBsendtask(SYSMNGR,5,1,info,15);
+  waittask(5,101);
+  i=*(int16 *)&info[0];
+  if (!i) {/* info [0,1] = 0 als ok geopend, dan info[2,3] = sys_ref */
+    sys_ref=*(int16 *)&info[2];
+  }
+  return i;
+}
+
+sysfget(pos,len,d)
+char *d;
+int16 pos,len;
+{
+  int16 sav_sys_ref;
+
+  sav_sys_ref=sys_ref;
+  sys_ref=0;/* sys.fas always opened with ref 0 */
+  sysget(pos,len,d);
+  sys_ref=sav_sys_ref;
+}
+
+sysfput(pos,len,s)
+char *s;
+int16 pos,len;
+{
+  int16 sav_sys_ref;
+
+  sav_sys_ref=sys_ref;
+  sys_ref=0;/* sys.fas always opened with ref 0 */
+  sysput(pos,len,s);
+  sys_ref=sav_sys_ref;
+}
+
+sysflush()
+{
+  EDBsendtask(SYSMNGR,5,5,&sys_ref,2);
+}
+
+// fasmngr
+
+fasadd(str)
+int16 str;
+{
+  return fas_task(1,YES,111,str);
+}
+
+fasaddi(str)
+int16 str;
+{
+  return fas_task(1,YES,110,str);
+}
+
+fasclos(str)
+int16 str;
+{
+  return fas_task(1,NO,200,str);
+}
+
+fasflush(str)
+int16 str;
+{
+  return fas_task(1,NO,201,str);
+}
+ 
+fasgetu(str)
+int16 str;
+{
+  return fas_task(1,2 ,21,str);
+}
+
+fasgeti(str)
+int16 str;
+{
+  return fas_task(1,2 ,20,str);
+}
+
+fasinfo(str,mode)
+int16 str,mode;
+{
+  return fas_task(2,NO,240,str,mode);
+}
+
+fasinit(str)
+int16 str;
+{
+  int16 i;
+  char *s;
+
+  i = address(str,0,&s);
+  while (i-->0) *s++='\0';
+}
+ 
+faskeyi(str,key,mode)
+int16 str,key,mode;
+{
+  return fas_task(3,YES,40,str,key,mode);
+}
+
+faskeyu(str,key,mode)
+int16 str,key,mode;
+{
+  return fas_task(3,YES,41,str,key,mode);
+}
+
+faskill(str)
+int16 str;
+{
+  return fas_task(1,2 ,180,str);
+}
+ 
+fasksfu(str)
+int16 str;
+{
+  return fas_task(1,NO,150,str);
+}
+
+fasopen(name,mode)
+char *name;
+int16 mode;
+{
+  int16 i;
+
+  pi = (int16 *) info;
+  *pi = mode;
+  i = 2;
+  FOREVER {
+    info[i++] = *name;
+    if (!*name) break;
+    name++;
+  }
+  EDBsendtask(FASMNGR,6,1,info,i);
+  return fas_ret(info+2);  /* if bytes returned, copy them on themselves */
+}
+
+fasseqi(str,chan,count)
+int16 str,chan,count;
+{
+  return fas_task(3,2 ,250,str,chan,count);
+}
+
+fasseqo(str,chan,count)
+int16 str,chan,count;
+{
+  return fas_task(3,3 ,251,str,chan,count);
+}
+ 
+fasunlck(str)
+int16 str;
+{
+  return fas_task(1,NO,210,str);
+}
+
+fasupd(str)
+int16 str;
+{
+  return fas_task(1,YES,91,str);
+}
+
+fasupdi(str)
+int16 str;
+{
+  return fas_task(1,YES,90,str);
+}
+ 
+static fas_ret(s)
+char *s;
+{
+  waittask(6,0);
+  if (ilength<2) {sys_err(122,ilength); return 0;}
+  pi = (int16 *) info;
+  if (ilength>2)
+    copy (&info[2],s,ilength-2);
+  return *pi;
+}
+ 
+fas_task (parmcnt,dflag,fun,p1,p2,p3)
+int16 parmcnt, fun, p1, p2, p3;
+char dflag;
+{
+  char *s, *d;
+  int16 len;
+ 
+  pi = (int16 *) info;
+  *pi++ = p1;
+  if (parmcnt>=2) *pi++ = p2;
+  if (parmcnt>=3) *pi++ = p3;
+  d = (char *) pi; ilength = parmcnt*sizeof(int16);
+  len = address(p1,0,&s); /* address & len of stru */
+  if (dflag) {
+    if (len<=0) return 39;
+    else if (dflag==2) len=4;/* send only 4 byte of info field */
+    else if (dflag==3) len=p3;
+    ilength += len;
+    copy (s,d,len);
+  }
+  EDBsendtask(FASMNGR,6,fun,info,ilength);
+  return fas_ret(s);
+}
+

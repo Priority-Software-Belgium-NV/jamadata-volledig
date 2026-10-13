@@ -1,0 +1,118 @@
+05-07-08 -> Bestel.inpakken ipv toog.
+	     -> Snelkiezen aantal op 1 na eerste keuze
+
+06-10-23 -> geen probleem meer met *xx bij klanten die geen keuzeopties willen.
+			gaat nu samen met nr. van de groep der Opties (die moet verschillend van 0 zijn).
+
+07-06-19 -> Snelkiezen gaf altijd 1 extra lijn met laatste product. Is nu opgelost.
+ 
+07-10-22 M> Meer dan 10.000 artikelen gaf problemen met EAN-TAB. 20.000 werd veranderd in 200.000
+
+07-11-09 M> Diverse problemen zijn nu opgelost (rommel na snelkiezen e.d.)
+ 
+07-11-13 M> Fout in kaskltc opgelost ivm GetPrtKeyText()
+			Einde met BTW-rek toegevoegd voor kassa's in grensstreek.
+
+07-11-16 M> Accentletters in KeyConen-toetsen opgelost
+			PLU-sortering op naam verwijdert accenten op letters
+
+07-11-22 M>	Keyboard in programma op azerty te zetten via int 3402
+			Zo geen affiche.jpg of .gif dan toont largdisp nu tickethoofding
+			'Bad record ix' melding bij 'extra tekst' is verholpen.
+
+07-12-07 M> 'error on total checksum' bij krediet.
+		    Einde betaling op cijfer drukken ipv 'terug' (toets wordt behouden).
+			geldlade sneller open
+			Externe klantenkaarten mogelijk (punten volle kaart op 0 zetten)
+
+08-03-07 M> BTW-nummer in nieuw formaat op FACTUUR-afdruk & Ticket (BE-0xxx)
+				Dit is onder meer ook voor Geenen, Qualidrinks, Mertens...
+			Verkopen per groep nu ook uitsplitsbaar per BTW-tarief (frituur, btw mee!=btw terplaatse)
+
+09-04-08 M> Wist nu ook PDA tickets voor leeggoed op 2-de kassa
+ 
+11-04-08 M> Maaltijdcheques (blokkeerde ook) opgelost
+
+14-04-08 M> Maaltijdcheques keuze aantal & automatische berekening
+
+xx-xx-09 M> Zwart scherm opgelost zo snel op terug geduwd
+			Controlescherm terug opgekuist
+			Geselecteerde groepen layout opgelost
+			Karkrtpt.dat kan nu ook gewist worden (was readonly na create)
+
+26-02-09 M> Controle bij kas_einde of er een totaal van een lijn op 0 staat (achter de schermen, PWL, LIK ?)
+			Weggevallen 'bancontact' opgelost
+			Kasgeld afdrukken aangepast (Groep 1018 had geen titel, maar moet niet afgedrukt)
+			Zo kortinglijn na een leeggoed lijn, dan toch artikel erboven nemen om korting te verrekenen
+			Negatieve ticketten aan factuurklant, kan terug via knop 'krediet'
+			Zo barcode fout lezen of onbekend, dan verschijnt melding maar wordt nu ook REGISTRY gecleared
+
+02-03-09 M> Menutoetsen in Rood, Artikelen in oranje
+
+16-03-09 M> Maaltijdcheques, zo x (Maal) genomen, dan nu toch OK verwerkt
+
+18-03-09 M> Promo artikelen kunnen een andere kleur krijgen
+
+02-04-09 M> Terug meer maaltijdscheques mogelijk dan noodzakelijk
+			Aanpassing aan Z-Totaal (fout opgelost zo in een dag reset)
+			   & Vragen om controleband af te drukken na Z-bonnetjes
+			Na negatief gemaakt ticket kan men terug betaalmiddel kiezen
+
+18-09-09 M> eID toegevoegd
+			Full HD klantenscherm mogelijk op nieuwe kassa
+			Sortering op # bij klt-kaarten opgelost
+			Promo-probleem bij gedeelte van codenum opgelost
+
+01-10-09 M> Fout in JamaCon.dll opgelost zo we 2-de console gebruiken voor grote klantendisplay met snelle barcodes
+
+16-11-09 M> Negatieve facturen worden 'Creditnota'
+
+25-11-09 M>	Tomra koppeling toegevoegd
+			regsave nu double (fouten met cijfers na komma die verloren gingen. oa bij VISA betalingen)
+			Fout opgelost, stel dat men 'Volledig Geld' nam en 'Credit' card duwde (met kosten) dan werd de REG
+			   niet aangepast met als gevolg dat we te weinig geld vragen aan de banksys automaat.
+			Extra ticket bij beID
+			Markeer tekst vervangen door 'Zet op ticket'
+			Fout bij maaltijdcheques (soms vroeger beperkt tot 25)
+			Kijken naar grootte extra scherm, zo 1920x1080 dan nieuwe 16/9 layout, anders 4/3
+			Barcodes gemaakt voor 'Fles Scannen' en bak 6, bak 12 of bak 24 nemen ($6, $7 en $8)
+			Datum afdrukken achter bon# bij bewaren bon
+			Fout opgelost zo factuur geselecteerd en dan toch bewaren bon. Drukte dan ten onrechte factuur af.
+
+26-11-09 M> Bij voldane grote facturen wordt nu 'VOLDAAN' afgedrukt onderaan rechts (PCL3 is getest)
+				-> Bij vervaldag.
+
+27-11-09 M> Lange barcodes gaven aanleiding tot 2 blauwe cijfers in geel paneel bovenaan. Is nu opgelost.
+			WRK-bons kunnen niet langer opgeslagen/opgeroepen worden met barcodes
+			VKPDAxxx.dat files kunnen nu nummers van 1 t/m 255 hebben
+			Barcode-scanner-programmeerbladen moeten aangepast, FULL ASCII code39 moet weg.
+				-> Daarom werd barcode +A0 gelezen als a0 (+ diende als lead-in blijkbaar)
+			Op scherm diversen werd PDA-Bons bijgezet zodat men PDA-bons kan zien en zo oproepen (zonder scanner)
+				-> Oproepen is te blokkeren via KASSYS.DAT (char 3416 op 1 zetten, kan ten onrechte op 1 staan)
+
+28-11-09 M> Teksten op extern scherm (custdisp) zijn iets kleiner zodat een volledige lijn in hoofdletters past.
+			Nieuwe JamaCon.dll zodat geheugenruimte niet meer zo snel zou aangroeien
+
+11-12-09 M> Externe printer (dubbele kasstrook) op CBM-720 via LPT1: terug in orde (werkte niet op WinTouch)
+			Barcode leeggoed ticket (9999000000504) wordt gescand zonder valse foutmelding (WLM, vers. 27/11)
+			Banksys.exe aangepast zodat MAESTRO de correcte betaalwijze VISA teruggeeft naar kassa
+			Bij zoeken op naam (PLU) wordt nu met NettoString gewerkt, dus spaties e.d. vallen weg in zoekterm
+
+17-12-09 M> Aanpassingen gedaan voor Frituur (maaltijd terplaatse is vanaf 1/1/10 12%, maar drank blijft 21% !!)
+			sysfile 3420/3422 bijgemaakt !
+
+ 
+10-03-10 M> Bij PLU-lijst komen promo's in andere kleur
+			Wanneer eID genomen wordt op factuur, dan geen extra ticket nodig (dus maar 2 afdrukken ipv 3)
+			Barcode fles op eerste lijn van KASPLU.DAT laat applicatie niet meer crashen
+			Subtotaal verschijnt nu correct op kleine klantendisplay
+
+06-04-10 M> Bij Korting op Alles wordt nu in de KASFAC.DAT we de juiste groep uitgeschreven op de korting lijn.
+			
+06-07-10 M> Zo factuur niet voldaan, dan wordt factuur datum bij vervaldatum gezet.
+
+22-07-10 M> Leeggoedkolom bij grote facturen werd aangepast om 4 tekens voor de komma weer te geven (was maar 2)
+			Wanneer het scannerblad gebruikt werd, dan werden codes als bak-van-6, of fles of bak niet reset bij
+			het slecht lezen van een barcode of bij het niet vinden van die bak/fles. Wordt nu wel gecleared
+			
+				

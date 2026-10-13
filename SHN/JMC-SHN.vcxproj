@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3D0A1730-B251-4179-917D-E556335204EA}</ProjectGuid>
+    <RootNamespace>Code</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Temp\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Temp\OvlObjD\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">JamaTest\Prog\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Temp\OvlObj\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">JMC</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <TypeLibraryName>OvlObjD/Code.tlb</TypeLibraryName>
+      <HeaderFileName>
+      </HeaderFileName>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <MinimalRebuild>true</MinimalRebuild>
+      <PreprocessorDefinitions>FLAGSHN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <StructMemberAlignment>1Byte</StructMemberAlignment>
+      <AdditionalOptions> /J</AdditionalOptions>
+      <PrecompiledHeaderOutputFile>Temp\OvlObjD/Code.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>Temp\OvlObjD/</AssemblerListingLocation>
+      <ObjectFileName>Temp\OvlObjD/</ObjectFileName>
+      <ProgramDataBaseFileName>Temp\OvlObjD/</ProgramDataBaseFileName>
+      <WarningLevel>Level1</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0813</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>Std\jamacon.lib;netapi32.lib;urlmon.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>Temp\Debug\JMC-SHN.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>Temp\OvlObjD/Code.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>Temp\OvlObjD/Code.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <TypeLibraryName>Temp\OvlObj/Code.tlb</TypeLibraryName>
+      <HeaderFileName>
+      </HeaderFileName>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <PreprocessorDefinitions>_USEJMW;FLAGSHN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>false</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <StructMemberAlignment>1Byte</StructMemberAlignment>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <AdditionalOptions> /J</AdditionalOptions>
+      <PrecompiledHeaderOutputFile>Temp\OvlObj/Code.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>Temp\OvlObj/</AssemblerListingLocation>
+      <ObjectFileName>Temp\OvlObj/</ObjectFileName>
+      <ProgramDataBaseFileName>Temp\OvlObj/</ProgramDataBaseFileName>
+      <WarningLevel>Level1</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0813</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>.\Std\jamacon.lib;netapi32.lib;urlmon.lib;</AdditionalDependencies>
+      <OutputFile>JamaTest\Prog\JMC.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <IgnoreSpecificDefaultLibraries></IgnoreSpecificDefaultLibraries>
+      <ProgramDatabaseFile>Temp\OvlObj/Code.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>Temp\OvlObj/Code.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="SHN0000-auto.c" />
+    <ClCompile Include="BKH0001.c" />
+    <ClCompile Include="BKH0002.cpp" />
+    <ClCompile Include="BKH0005.c" />
+    <ClCompile Include="BKH0006.c" />
+    <ClCompile Include="BKH0009.cpp" />
+    <ClCompile Include="BKH0010.c" />
+    <ClCompile Include="BKH0011.c" />
+    <ClCompile Include="BKH0012.c" />
+    <ClCompile Include="BKH0014.c" />
+    <ClCompile Include="BKH0015.c" />
+    <ClCompile Include="BKH0017.c" />
+    <ClCompile Include="BKH0019.c" />
+    <ClCompile Include="BKH0020.c" />
+    <ClCompile Include="BKH0021.c" />
+    <ClCompile Include="BKH0023.c" />
+    <ClCompile Include="BKH0032.c" />
+    <ClCompile Include="BKH0057.c" />
+    <ClCompile Include="BKH0058.cpp" />
+    <ClCompile Include="BKH0059.c" />
+    <ClCompile Include="BKH0060.c" />
+    <ClCompile Include="BKH0061.c" />
+    <ClCompile Include="BKH0062.c" />
+    <ClCompile Include="BKH0063.c" />
+    <ClCompile Include="BKH0064.c" />
+    <ClCompile Include="BKH0065.c" />
+    <ClCompile Include="BKH0072.c" />
+    <ClCompile Include="BKH0073.cpp" />
+    <ClCompile Include="BKH0074.c" />
+    <ClCompile Include="BKH0079.c" />
+    <ClCompile Include="BKH0095.c" />
+    <ClCompile Include="DRK0155.c" />
+    <ClCompile Include="DRK0160.cpp" />
+    <ClCompile Include="DRK0205.c" />
+    <ClCompile Include="DRK0210.c" />
+    <ClCompile Include="DRK0211.c" />
+    <ClCompile Include="DRK0213.cpp" />
+    <ClCompile Include="DRK0214.c" />
+    <ClCompile Include="DRK0215.c" />
+    <ClCompile Include="DRK0217.c" />
+    <ClCompile Include="DRK0218.c" />
+    <ClCompile Include="DRK0219.c" />
+    <ClCompile Include="DRK0220.c" />
+    <ClCompile Include="DRK0229.c" />
+    <ClCompile Include="DRK0230.c" />
+    <ClCompile Include="DRK0234.cpp" />
+    <ClCompile Include="DRK0237.c" />
+    <ClCompile Include="DRK0238.c" />
+    <ClCompile Include="DRK0239.c" />
+    <ClCompile Include="DRK0240.c" >
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="DRK0244-auto.c" />
+    <ClCompile Include="DRK0248-auto.c" />
+    <ClCompile Include="DRK0249-auto.c" />
+    <ClCompile Include="DRK0252-auto.c" />
+    <ClCompile Include="DRK0254-auto.c" />
+    <ClCompile Include="DRK0257-auto.c" />
+    <ClCompile Include="DRK0261.c" />
+    <ClCompile Include="DRK0264.c" />
+    <ClCompile Include="DRK0266.c" />
+    <ClCompile Include="DRK0267.c" />
+    <ClCompile Include="DRK0268.c" />
+    <ClCompile Include="DRK0290.cpp" />
+    <ClCompile Include="DRK0292.c" />
+    <ClCompile Include="DRK0293.c" />
+    <ClCompile Include="DRK0295.c" />
+    <ClCompile Include="DRK0296.c" />
+    <ClCompile Include="DRK0297.c" />
+    <ClCompile Include="DRK0298.c" />
+    <ClCompile Include="DRK0900.cpp" />
+    <ClCompile Include="DRK0941-auto.c" />
+    <ClCompile Include="DRK0944-auto.c" />
+    <ClCompile Include="SHN2141.cpp" />
+    <ClCompile Include="DRK2194.c" />
+    <ClCompile Include="DRK2215.c" />
+    <ClCompile Include="DRK2240.cpp" />
+    <ClCompile Include="DRK2241.cpp" />
+    <ClCompile Include="DRK2282.cpp" />
+    <ClCompile Include="DRK2290.c" />
+    <ClCompile Include="DRK2291.cpp" />
+    <ClCompile Include="DRK2391.cpp" />
+    <ClCompile Include="DRK2392.cpp" />
+    <ClCompile Include="DRK2393.cpp" />
+    <ClCompile Include="DRK2394.cpp" />
+    <ClCompile Include="DRK2395.cpp" />
+    <ClCompile Include="DRK2397.cpp" />
+    <ClCompile Include="DRK2398.cpp" />
+    <ClCompile Include="DRK2501.cpp" />
+    <ClCompile Include="DRK2502.cpp" />
+    <ClCompile Include="DRK2503.cpp" />
+    <ClCompile Include="BKH2800.cpp" />
+    <ClCompile Include="BKH2801.cpp" />
+    <ClCompile Include="BKH2802.cpp" />
+    <ClCompile Include="BKH2900.c" />
+    <ClCompile Include="BKH2911.c" />
+    <ClCompile Include="BKH2918.c" />
+    <ClCompile Include="BKH2919.c" />
+    <ClCompile Include="BKH2921.c" />
+    <ClCompile Include="BKH2922.c" />
+    <ClCompile Include="BKH2931.c" />
+    <ClCompile Include="BKH2961.c" />
+    <ClCompile Include="Std\Markup.cpp" />
+    <ClCompile Include="Std\ovlfunc.c" />
+    <ClCompile Include="Std\ovlhand.cpp" />
+    <ClCompile Include="ovlShare.c" />
+    <ClCompile Include="CppShare.cpp" />
+    <ClInclude Include="ovlShare.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="par0155.c" />
+    <ClInclude Include="par0237.c" />
+    <ClInclude Include="PAR0240.C" />
+    <ClInclude Include="PAR0244.C" />
+    <ClInclude Include="PAR0248.C" />
+    <ClInclude Include="PAR0249.C" />
+    <ClInclude Include="PAR0252.C" />
+    <ClInclude Include="PAR0254.C" />
+    <ClInclude Include="PAR0257.C" />
+    <ClInclude Include="PAR0941.C" />
+    <ClInclude Include="PAR0944.C" />
+    <ClInclude Include="PARETIK.C" />
+    <ClInclude Include="PARLAY.C" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ToDo.txt" />
+    <None Include="Code.cnf" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

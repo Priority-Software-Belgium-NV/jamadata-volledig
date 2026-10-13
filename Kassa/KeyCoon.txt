@@ -1,0 +1,2 @@
+02/11/2004 00.01 JG : Basis a.h.v. kassa-versie met kasscr.scr 
+17/02/2005 00.02 JG : barcode met '#', opzoeken op kode met '.' en opzoeken op naam ook zonder leestekens

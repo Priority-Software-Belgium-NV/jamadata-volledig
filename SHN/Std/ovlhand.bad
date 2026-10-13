@@ -1,0 +1,535 @@
+#define _WIN32_WINNT 0x0501
+
+#define  UseJMS	true
+#include "JamaConL.h"
+ 
+#define YES             1
+#define NO              0
+
+#define BUF_LEN 1024 + 8  // is zelfde waarde als in COMNETB.PRC
+
+extern "C" void RunOvlSystem();
+extern "C" void EndOvl();
+extern "C" void ovlexit(short int nr);
+extern "C" void ovlreset(short int dum);
+
+extern "C" short int procid;
+extern "C" short int prc_num[3];
+extern "C" short int ThisPostNr;
+extern "C" short int ThisScreenNr;
+
+bool EnableEnhancedFlag=false;
+bool NoMessageBoxes=false;
+
+//*********************************************
+// Memory Mapped File / Shared Memory for IPC
+//*********************************************
+
+struct s_SharedMem {
+	bool Used;
+	unsigned char TaskBuf[BUF_LEN];
+} *pSharedMem=NULL;
+
+HANDLE SharedMemMutex;
+HANDLE JMSProcEvent, JMSDoneEvent, OVLProcEvent, OVLDoneEvent;
+HANDLE hMMFile;
+
+void CreateSharedMem(int MMFIx)
+{
+	CString strSharedMemMutex;
+	strSharedMemMutex.Format("JMwSharedMemoryMutex-%d",MMFIx);
+  SharedMemMutex = CreateMutex(NULL,FALSE,strSharedMemMutex);
+	CString strJMSProcEvent;
+	strJMSProcEvent.Format("JMwJMSProcEvent-%d",MMFIx);	JMSProcEvent = CreateEvent( 
+        NULL,               // default security attributes
+        FALSE,              // auto-reset event
+        FALSE,              // initial state is nonsignaled
+        strJMSProcEvent     // object name
+        );
+	
+  if (JMSProcEvent == NULL) 
+  { 
+        //LogAdd(35,0,"Cannot make JMSProcEvent");
+        return;
+  }
+
+	CString strJMSDoneEvent;
+	strJMSDoneEvent.Format("JMwJMSDoneEvent-%d",MMFIx);
+	JMSDoneEvent = CreateEvent(         NULL,               // default security attributes
+        FALSE,              // auto-reset event
+        FALSE,              // initial state is nonsignaled
+        strJMSDoneEvent     // object name
+        );
+	
+  if (JMSDoneEvent == NULL) 
+  { 
+		//LogAdd(35,0,"Cannot make JMSProcEvent");
+		return;
+  }
+
+	CString strJMwOVLProcEvent;
+	strJMwOVLProcEvent.Format("JMwOVLProcEvent-%d",MMFIx);
+	OVLProcEvent = CreateEvent(        NULL,               // default security attributes
+        FALSE,              // auto-reset event
+        FALSE,              // initial state is nonsignaled
+        strJMwOVLProcEvent  // object name
+        );
+	
+  if (OVLProcEvent == NULL) 
+  { 
+        //LogAdd(35,0,"Cannot make JMSProcEvent");
+        return;
+  }
+
+	CString strJMwOVLDoneEvent;
+	strJMwOVLDoneEvent.Format("JMwOVLDoneEvent-%d",MMFIx);
+	OVLDoneEvent = CreateEvent( 
+		    NULL,               // default security attributes
+        FALSE,              // auto-reset event
+        FALSE,              // initial state is nonsignaled
+        strJMwOVLDoneEvent  // object name
+        );
+	
+  if (OVLDoneEvent == NULL) 
+  { 
+		//LogAdd(35,0,"Cannot make JMSProcEvent");
+		return;
+  }
+
+	int size=sizeof(s_SharedMem);
+	CString strJMwSharedMemoryFile;
+	strJMwSharedMemoryFile.Format("JMwSharedMemoryFile-%d",MMFIx);
+	hMMFile = OpenFileMapping(
+                   FILE_MAP_ALL_ACCESS,   // read/write access
+                   FALSE,                 // do not inherit the name
+         			     strJMwSharedMemoryFile);					 // Name of mapping object. 
+
+	if (hMMFile==NULL) {
+		hMMFile = CreateFileMapping(INVALID_HANDLE_VALUE,    // Current file handle. 
+					NULL,                              // Default security. 
+					PAGE_READWRITE,                    // Read/write permission. 
+					0,                                 
+					size,
+					strJMwSharedMemoryFile);					 // Name of mapping object. 
+	}
+	int ret = GetLastError();
+
+	pSharedMem = (struct s_SharedMem *)MapViewOfFile(hMMFile, // Handle to mapping object. 
+      FILE_MAP_ALL_ACCESS,               // Read/write permission 
+      0,                                 // Max. object size. 
+      0,                                 // Size of hFile. 
+      size);                                // Map entire file. 
+ 
+  ret = GetLastError();
+
+	if (hMMFile == NULL) {
+		//LogAdd(35,0,"Cannot make Memory Mapped File");
+		return;
+	}
+}
+
+UNALIGNED struct sComBuf {
+	short unsigned DestId;
+  short unsigned OrigId;
+	short unsigned Len;
+	unsigned char Function;
+	unsigned char Type;
+	char Info[BUF_LEN];
+};
+
+void DoExit(int ResetFlagFromProcId)
+{
+  if (ResetFlagFromProcId) ovlreset(ResetFlagFromProcId);
+  _moexit(1);
+  EndOvl();
+  UnmapViewOfFile(pSharedMem);
+  CloseHandle(SharedMemMutex);
+  CloseHandle(JMSProcEvent);
+  CloseHandle(JMSDoneEvent);
+  CloseHandle(OVLProcEvent);
+  CloseHandle(OVLDoneEvent);
+  CloseHandle(hMMFile);
+
+	if (!NoMessageBoxes) AfxMessageBox("JMwServer not listening ... OVL closed !",MB_OK);
+	exit(1);
+}
+
+extern "C" void EDBsendtask(short int destprc,short int type,short int function,char *info,short int len)
+{
+	struct sComBuf *pComBuf = (struct sComBuf *)pSharedMem->TaskBuf;
+	for (int cnt=0; cnt<120; cnt++) {
+		pComBuf->DestId=19;
+		pComBuf->OrigId=procid;
+		pComBuf->Len = len;
+		pComBuf->Function=(unsigned char) function;
+		pComBuf->Type = (unsigned char) type;
+		if (len>0) memcpy(pComBuf->Info,info,len);
+		SetEvent(JMSProcEvent);
+		DWORD dwWaitResult = WaitForSingleObject(JMSDoneEvent, 500); // 120 x 0,5 = 60 seconds to end of execution
+		if (dwWaitResult == WAIT_OBJECT_0) return;
+		kbtest();
+  }
+	// nog na te kijken ... server antwoordt niet !
+  DoExit(0);
+}
+
+extern "C" void gettask(short int *reqproc,short int *type,short int *function,char *info,short int *ilength)
+{
+	struct sComBuf *pComBuf = (struct sComBuf *)pSharedMem->TaskBuf;
+
+	DWORD dwWaitResult = WaitForSingleObject( 
+      OVLProcEvent, // event handle
+      INFINITE);    // indefinite wait
+
+	if (dwWaitResult == WAIT_OBJECT_0) {
+		*reqproc = pComBuf->OrigId;
+		*type = pComBuf->Type;
+		*function = pComBuf->Function;
+		*ilength = pComBuf->Len;
+		if (*ilength > 0) memcpy(info,pComBuf->Info,*ilength);
+	}
+	else {
+		printf("error on wait for single object bij gettask !\r\n");
+	}
+}
+
+CString JmsCmd(CString Cmd)
+{
+  if (Cmd.GetLength()<=BUF_LEN-1) {
+    EDBsendtask(5,10,100,(char *)(LPCTSTR)Cmd,Cmd.GetLength()+1);
+  }
+  else {
+    EDBsendtask(5,10,101,(char *)(LPCTSTR)Cmd,BUF_LEN-1);
+    Cmd=Cmd.Mid(BUF_LEN-1);
+    while (Cmd.GetLength()>BUF_LEN-1) {
+      EDBsendtask(5,10,102,(char *)(LPCTSTR)Cmd,BUF_LEN-1);
+      Cmd=Cmd.Mid(BUF_LEN-1);
+    }
+    EDBsendtask(5,10,103,(char *)(LPCTSTR)Cmd,Cmd.GetLength()+1);
+  }
+  // wait for reply (must be 105/106, when multiple answers, the last is 105, the frame before are all 106)
+  short int reqproc, type, function, ilength;
+  char info[BUF_LEN];
+  CString strReply="";
+  while (true) {
+    gettask(&reqproc,&type,&function,info,&ilength);
+    if (type!=10 || ilength<0 || ilength>=BUF_LEN) break;
+    info[ilength]=0;
+    strReply+=info;
+    if (function==105) break;
+    EDBsendtask(5,10,104,"",1);
+  }
+  return strReply;
+}
+
+extern "C" char SplLastPrinted[250];
+
+void ProcessSplFile(char* FilePath)
+{
+  CString Cmd;
+  Cmd.Format("ProcessSplFile|%s|%d",FilePath,ThisPostNr);
+  CString Reply=JmsCmd(Cmd);
+  sprintf_s(SplLastPrinted,sizeof(SplLastPrinted),"%s",Reply);
+}
+
+extern "C" unsigned short jamin1[];
+
+extern "C" void jamint()
+{
+	if (jamin1[0]>=0xF0 && jamin1[0]<=0xFF) {
+		if (jamin1[0]==0xF0) {
+			jamin1[1]=0; // busycount = 0
+		}
+		return; // con e.d. ...
+	}
+	if (jamin1[0]==0x1A) {
+		switch (jamin1[1]) {
+			case 0x00:
+				DWORD TickCount = GetTickCount();
+				TickCount = TickCount/55;
+				jamin1[3]=(unsigned short) (TickCount/0x10000L);
+				jamin1[4]=TickCount%0x10000L;
+				return;
+		}
+	}
+	else if (jamin1[0]==0x21) {
+	}
+
+	char buf[100];
+  sprintf(buf,"Jamint int-%2X and AX=%04X not emulated ... please add !",jamin1[0],jamin1[1]);
+	AfxMessageBox(buf,MB_OK);
+}
+
+// nieuwe versie van routines die vaak in OVL's gebruikt worden (moet wegvallen OVLxxxx.C)
+
+extern "C" void getsysprNew(short int lsttype, short int *form_dat, short int *pmode, short int *pprt) 
+{
+  char LstBuf[16];
+  short int papnr, i, j;
+  CString Cmd, Reply;
+
+  if (lsttype<1 || lsttype>30) lsttype=1; // if invalid #, use 1
+  sysget(18000+(lsttype-1)*16,16,LstBuf);
+  PrintListNr=lsttype;
+  PrintPaperNr=LstBuf[0];
+  PrintOverlayRef=LstBuf[1];
+  PrintJobBits=*(unsigned short *)&LstBuf[2];
+  PrinterNr=LstBuf[9];
+  if (PrinterNr==0) {
+    CString Cmd;
+    Cmd.Format("GetIniKeyValue|Document-%03d_Settings|Printer",PrintListNr);
+    CString Reply=JmsCmd(Cmd);
+    PrinterNr=atol(Reply);
+  }
+  *pprt=1;   // doe of de printout op printer 1 komt (speelt geen rol meer)
+  *pmode=1;  // doe of de printmode op 1 staat (speelt geen rol meer)
+  
+  form_dat[0]=2480; form_dat[1]=3507; form_dat[2]=0; form_dat[3]=118; form_dat[4]=118; form_dat[5]=118; form_dat[6]=118; form_dat[7]=4;
+  
+  if (PrintPaperNr==0) goto AdjustAndReturn;   // print op PDF, is standaard Windows Layout
+
+  Cmd.Format("GetIniKeyValue|Paper-%03d_Settings|LayoutData",PrintPaperNr);
+  Reply=JmsCmd(Cmd).MakeUpper();
+  if (Reply.GetLength()==0) goto AdjustAndReturn;  // gebruik de standaard windows layout
+  // bv.:  2850|3600|-200|200|0|240|300|L
+  j=0;
+  for (i=0; i<7; i++) {
+    form_dat[i]=atol(Reply.Mid(j));
+    j=Reply.Find('|',j);
+    if (j==-1) break;
+    j++;
+  }
+  if (j==-1) goto AdjustAndReturn;
+ 
+  switch (Reply.GetAt(j)) {
+    case 'R':
+      form_dat[7]=0;
+      break;
+    case 'K':
+      form_dat[7]=1;
+      break;
+    case 'S':
+      form_dat[7]=2;
+      break;
+    case 'E':
+      form_dat[7]=3;
+      break;
+    case 'L':
+      form_dat[7]=5;
+      break;
+  // W moet 4 geven, maar dat is de default (zie hoger)
+  //sysget(2384+papnr*16,16,form_dat);
+  }
+AdjustAndReturn:;
+  if (form_dat[7]!=1 && (lsttype>=7 && lsttype<=30 && lsttype!=13)) {
+    form_dat[6]=0;
+  }
+}
+
+extern "C" void getsyspr(short int lsttype,short int *form_dat, short int *pmode, short int *pprt)
+{
+  char Old2New[20]={1,1,2,2,2,2,2,3,2,10,2,5,4,2,9,5,5,2,2,2};
+  
+  if (lsttype>=1 && lsttype<=20) lsttype=Old2New[lsttype-1];  // remap to new type (1->20)
+  else lsttype=1;
+  getsysprNew(lsttype,form_dat,pmode,pprt);
+}
+
+
+
+// CopyHtml() - Copies given HTML to the clipboard.
+// The HTML/BODY blanket is provided, so you only need to
+// call it like CallHtml("<b>This is a test</b>");
+
+void CopyHTML(char *html) {
+    // Create temporary buffer for HTML header...
+    char *buf = new char [400 + strlen(html)];
+    if(!buf) return;
+
+    // Get clipboard id for HTML format...
+    static int cfid = 0;
+    if(!cfid) cfid = RegisterClipboardFormat("HTML Format");
+
+    // Create a template string for the HTML header...
+    strcpy(buf,
+        "Version:0.9\r\n"
+        "StartHTML:00000000\r\n"
+        "EndHTML:00000000\r\n"
+        "StartFragment:00000000\r\n"
+        "EndFragment:00000000\r\n"
+        "<html><body>\r\n"
+        "<!--StartFragment -->\r\n");
+
+    // Append the HTML...
+    strcat(buf, html);
+    strcat(buf, "\r\n");
+    // Finish up the HTML format...
+    strcat(buf,
+        "<!--EndFragment-->\r\n"
+        "</body>\r\n"
+        "</html>");
+
+    // Now go back, calculate all the lengths, and write out the
+    // necessary header information. Note, wsprintf() truncates the
+    // string when you overwrite it so you follow up with code to replace
+    // the 0 appended at the end with a '\r'...
+    char *ptr = strstr(buf, "StartHTML");
+    wsprintf(ptr+10, "%08u", strstr(buf, "<html>") - buf);
+    *(ptr+10+8) = '\r';
+
+    ptr = strstr(buf, "EndHTML");
+    wsprintf(ptr+8, "%08u", strlen(buf));
+    *(ptr+8+8) = '\r';
+
+    ptr = strstr(buf, "StartFragment");
+    wsprintf(ptr+14, "%08u", strstr(buf, "<!--StartFrag") - buf);
+    *(ptr+14+8) = '\r';
+
+    ptr = strstr(buf, "EndFragment");
+    wsprintf(ptr+12, "%08u", strstr(buf, "<!--EndFrag") - buf);
+    *(ptr+12+8) = '\r';
+
+    // Now you have everything in place ready to put on the
+    // clipboard.
+
+    // Open the clipboard...
+    if(OpenClipboard(0)) {
+        
+        // Empty what's in there...
+        EmptyClipboard();
+        
+        // Allocate global memory for transfer...
+        HGLOBAL hText = GlobalAlloc(GMEM_MOVEABLE |GMEM_DDESHARE, strlen(buf)+4);
+        
+        // Put your string in the global memory...
+        char *ptr = (char *)GlobalLock(hText);
+        strcpy(ptr, buf);
+        GlobalUnlock(hText);
+        
+        ::SetClipboardData(cfid, hText);
+        
+        CloseClipboard();
+        // Free memory...
+        GlobalFree(hText);
+        
+    }
+
+    // Clean up...
+    delete [] buf;
+}
+
+int WINAPI WinMain(	HINSTANCE hInstance,
+					HINSTANCE hPrevInstance,
+					LPTSTR    lpCmdLine,
+					int       nCmdShow)
+{
+	/*
+	OpenClipboard(0);
+  EmptyClipboard(); 
+
+	CString msg = "Hallo\r\n";
+	msg = "Version:0.9\r\n";
+	msg+= "StartHTML:71\r\n";
+	msg+= "EndHTML:170\r\n";
+	msg+= "StartFragment:140\r\n";
+	msg+= "EndFragment:160\r\n";
+	msg+= "StartSelection:140\r\n";
+	msg+= "EndSelection:160\r\n";
+	msg+= "<!DOCTYPE>\r\n";
+	msg+= "<HTML>\r\n";
+	msg+= "<HEAD>\r\n";
+	msg+= "<TITLE>The HTML Clipboard</TITLE>\r\n";
+	msg+= "<BASE HREF=\"http://sample/specs\">\r\n";
+	msg+= "</HEAD>\r\n";
+	msg+= "<BODY>\r\n";
+	msg+= "<!--StartFragment -->\r\n";
+	msg+= "<P>The Fragment</P>\r\n";
+	msg+= "<!--EndFragment -->\r\n";
+	msg+= "</BODY>\r\n";
+	msg+= "</HTML>\r\n";
+
+	UINT format = ::RegisterClipboardFormat("HTML Format");
+	CSharedFile sf(GMEM_MOVEABLE|GMEM_SHARE|GMEM_ZEROINIT);
+	sf.Write(msg,msg.GetLength());
+	//sf.Close();
+/*
+size_t size = sizeof(TCHAR)*(1+msg.GetLength());
+	HGLOBAL hResult = GlobalAlloc(GMEM_MOVEABLE, size);
+	LPTSTR lptstrCopy = (LPTSTR)GlobalLock(hResult);
+	memcpy(lptstrCopy, msg.GetBuffer(), size);
+	GlobalUnlock(hResult);
+	if ( ::SetClipboardData( format, hResult ) == NULL ) {
+
+	if (::SetClipboardData(CF_TEXT,sf.Detach())) {
+	  bool fail=true;
+	}
+	CloseClipboard();
+
+*/
+  //_CrtSetBreakAlloc(564); //om het 564 alloc na te kijken ..
+  //_CrtSetBreakAlloc(551); //om het 558 alloc na te kijken ..
+	
+	prc_num[1]=1; // Laat F1 voor EXIT toe ...
+	if (__argc>=4) {
+    NoMessageBoxes=true;
+		prc_num[1]=0; // vanuit JMS
+	}
+	//CopyHTML("<pre>test\r\nikke\r\n</pre>");
+  if (__argc>=3) {
+    moinit(1|OptionSTO|OptionAddExtraSTO,-1);  // -2 om scherm te 'hiden' 
+	}
+	else {
+		moinit(1|OptionSTO|OptionAddExtraSTO,0);  // -2 om scherm te 'hiden' -1 om visible te zijn (in JMS)
+	}
+
+	SetProgramName("Jama-Code");
+	CString ConsoleTitle;
+	if (__argc>=4) {
+		ConsoleTitle=__argv[3];
+		ConTitle((char *)(LPCTSTR)ConsoleTitle);
+
+	}
+
+	ThisPostNr=1; ThisScreenNr=1;
+	if (__argc>=3) {
+		int parm=atoi(__argv[2]);
+		if (parm>=1 && parm<=4) ThisScreenNr=parm;
+    parm=atoi(__argv[1]);
+		if (parm>=1 && parm<=100) ThisPostNr=parm;
+	}
+ 
+  int MMFIx=0+(ThisPostNr-1)*5+ThisScreenNr; // Off + 0 is JMH, +1 ... +4 voor de JMC's (per screen)
+  procid=MMFIx;
+
+	errnum=1;
+  CreateSharedMem(MMFIx);
+
+  cls();
+	if (__argc>=4 && ConsoleTitle.Left(3).CompareNoCase("JMD")!=0) {
+		CString JmhName;
+		JmhName.Format("JMH - Jamadata Hub - Post-%03d",ThisPostNr);
+		ExecJamaLink("S","",MMFIx,NULL,(char *)(LPCTSTR)JmhName,&DoExit); // terminal nummer niet belangrijk ... windows title werd hierboven al ingesteld
+		//Sleep(5000); // wacht 1 second om de JMS dit venster te laten vinden, anders start de communicatie maar weet hij niet van wie het pakket komt !
+  }
+  if (__argc==1 || (__argc==3 && ThisPostNr==1 && ThisScreenNr==1) || __argc>3) { // standalone gebruik (om te testen) of JMC in JMD
+    pOvlExitRout=&ovlexit;
+    closestr("#");
+  }
+	if (__argc==3 && ThisPostNr==1 && ThisScreenNr==1) {
+		WndShowWindow(0,SW_SHOW);
+	}
+  SetProcessFileCallBack(&ProcessSplFile);
+  RunOvlSystem();
+  if (pSharedMem) {
+    UnmapViewOfFile(pSharedMem);
+    CloseHandle(SharedMemMutex);
+    CloseHandle(JMSProcEvent);
+    CloseHandle(JMSDoneEvent);
+    CloseHandle(OVLProcEvent);
+    CloseHandle(OVLDoneEvent);
+    CloseHandle(hMMFile);
+  }
+	_moexit(0);
+	return 0;
+}
+

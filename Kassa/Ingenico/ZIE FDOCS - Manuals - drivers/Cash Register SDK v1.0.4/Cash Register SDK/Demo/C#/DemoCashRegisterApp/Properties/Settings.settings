@@ -1,0 +1,63 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ChessPt.CashRegister.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TcpPort" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10000</Value>
+    </Setting>
+    <Setting Name="KeepAliveInterval" Type="System.Int16" Scope="User">
+      <Value Profile="(Default)">-1</Value>
+    </Setting>
+    <Setting Name="FirstRun" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ComPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ConnectionType" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="BaudRate" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">115200</Value>
+    </Setting>
+    <Setting Name="DataBits" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">8</Value>
+    </Setting>
+    <Setting Name="Parity" Type="System.IO.Ports.Parity" Scope="User">
+      <Value Profile="(Default)">None</Value>
+    </Setting>
+    <Setting Name="StopBits" Type="System.IO.Ports.StopBits" Scope="User">
+      <Value Profile="(Default)">One</Value>
+    </Setting>
+    <Setting Name="FlowControl" Type="System.IO.Ports.Handshake" Scope="User">
+      <Value Profile="(Default)">RequestToSend</Value>
+    </Setting>
+    <Setting Name="AutoRepeatInterval" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2000</Value>
+    </Setting>
+    <Setting Name="TmCardKeys" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;00-00-00-00-00-00-00;00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="TmCardDetectionTimeout" Type="System.Int16" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="TmDealerId" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="TmKeyGenSecret" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="TmKeyGenLength" Type="System.Int16" Scope="User">
+      <Value Profile="(Default)">32</Value>
+    </Setting>
+    <Setting Name="ManagerPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1234</Value>
+    </Setting>
+    <Setting Name="TransactionMode" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">-1</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

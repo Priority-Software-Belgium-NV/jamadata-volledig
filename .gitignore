@@ -1,0 +1,36 @@
+# Visual Studio
+.vs/
+ipch/
+*.ipch
+*.sdf
+*.opensdf
+*.VC.db
+*.VC.VC.opendb
+*.suo
+*.user
+*.aps
+*.ncb
+
+# Build output
+[Dd]ebug*/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+packages/
+*.obj
+*.pch
+*.pdb
+*.ilk
+*.idb
+*.tlog
+*.lastbuildstate
+*.log
+
+# Testomgeving / data (lokaal houden, bevat klantdata)
+SHN/JamaTest/
+SHN/Temp/
+
+# Certificaten / sleutels / OAuth-credentials
+*.pfx
+credentials.json
+token*.json

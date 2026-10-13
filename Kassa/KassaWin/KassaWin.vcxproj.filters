@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="LIB">
+      <UniqueIdentifier>{e8b0f486-eafd-4beb-91f7-fce7669a36af}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="res\KassaWin.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\KassaWin.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="KassaWin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AffDisplay.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CustDisplay.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Picture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Label.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KASHEAD.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KasKltc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="kaskrtc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="kaspluc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KASSA.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="kassysc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KasTxtNc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KasUSRc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MARKUP.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="JmuDoc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="QuickPDFDLL0717.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="swelio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="KassaWin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AffDisplay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CustDisplay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Picture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Label.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KasUSRc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KasTxtNc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kassysc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kassac.CPP">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kaspluc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kaskrtc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KasKltc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kasCommn.CPP">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MARKUP.CPP">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="JmuDoc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="QuickPDFDLL0717.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="KassaWin.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="EIDRead.lib">
+      <Filter>LIB</Filter>
+    </Library>
+  </ItemGroup>
+</Project>

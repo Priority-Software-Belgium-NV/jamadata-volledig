@@ -1,0 +1,50 @@
+=========================
+Cash Register SDK History
+=========================
+
+v1.0.4 (2018-03-22)
+-------------------
+
+- Added authorisation code and token to TransactionRequest (specification and demo cash register application).
+- Added sending of invalid messages to the terminal for testing (demo cash register application).
+- Added processing of Information Report stage messages (demo cash register application).
+- Added TransactionRequest.CardHolderLanguage field (specification and demo cash register application).
+- Added TransactionResponse.CardBrandIdentifier field (specification and demo cash register application).
+- Added Totals Request/Response messages (specification and demo cash register application).
+- Added Acquirer List Request/Response messages (specification and demo cash register application).
+- Added Do Acquirer Download Request/Response messages (specification and demo cash register application).
+- Added Pending Messages Acquirer List Request/Response messages (specification and demo cash register application).
+- Added Do Send or Delete Pending Message Request/Response messages (specification and demo cash register application).
+- Added Security Scheme List Request/Response messages (specification and demo cash register application).
+- Added Do Security Scheme Download Request/Response messages (specification and demo cash register application).
+- Added TMS session Request/Response messages (specification and demo cash register application).
+- Added Reboot and Clear C-TAP Database Request/Response messages (specification and demo cash register application).
+
+
+v1.0.3 (2017-10-13)
+-------------------
+
+- Added intermediate result mode that requires no vending response after the intermediate result request message.
+  Can be used to start delivering the product directly after the authorisation wihtout waiting for the completion.
+- Added version information to specification and demo cash register application.
+- Added transparant mode to specification and demo cash reigster application.
+
+
+v1.0.2 (2017-08-30)
+-------------------
+
+- Added intermediate result to TLV specs and demo cash register application.
+- Added CancelRequest to TLV specs and demo cash register application.
+- Added LastTransactionTicket and LastTranasactionStatus to TLV specs and demo cash register application.
+
+
+v1.0.1 (2016-03-09)
+-------------------
+
+- Added demo cash register application.
+
+
+v1.0.0 (2016-01-22)
+-------------------
+
+- First release.
