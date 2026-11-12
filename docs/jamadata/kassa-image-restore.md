@@ -87,7 +87,7 @@ Enkel gebruiken bij problemen met Windows (blue screen, virus) op een PanelPC.
 2. Stel de kassagegevens veilig (§2): punt 4 in "Menu Beheer Key-conen Kassa" + indien mogelijk N-transfer; lukt dat niet, kopieer `C:\KASSA` naar `D:` via Verkenner.
 3. Zet de kassa uit en terug aan; zodra er tekst verschijnt druk op **F12** (boot-keuzemenu).
 4. Kies met de pijltjes de USB-stick ("Sandisk" of ander merk) en druk [Enter]. De kassa start op vanaf de USB-stick en toont het grijze Windows-aanmeldscherm.
-5. Meld aan door op de 3 Jamadata-iconen te klikken, van boven naar onder (afbeeldingswachtwoord).
+5. Meld aan met het afbeeldingswachtwoord (volgorde: zie interne bron "afbeeldingswachtwoord kassa.pdf").
 6. Windows start (Engelstalig, grijze "Jamadata"-achtergrond) en opent automatisch de Jamadata TeamViewer. Support neemt over met de TeamViewer-code van de klant (wachtwoord: zie interne bron).
 7. Tip: hernoem eerst de huidige map `c:\kassa` (op de stick) naar `c:\kassa_USB`, zodat je een werkende map kassa behoudt bij problemen met de SSD.
 8. Dubbelklik op het icoon "SSD Restore menu".
