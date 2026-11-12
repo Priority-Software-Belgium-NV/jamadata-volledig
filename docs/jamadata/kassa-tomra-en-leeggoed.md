@@ -7,7 +7,7 @@ Gebruik dit document voor: de koppeling tussen een leeggoedautomaat (Tomra) en d
 | | 1) ZONDER controle van de leeggoedbon | 2) MET controle van de leeggoedbon (Tomra ERS) |
 |---|---|---|
 | Principe | De barcode op het ticket bevat zelf het leeggoedbedrag; de kassa leest het bedrag uit de barcode (zoals een weegschaalbarcode). | De automaat schrijft per ticket een bestand (`*.TXT`) op een gedeelde map/FTP. De kassa zoekt bij het scannen het bestand op, boekt het bedrag en **wist het bestand**, zodat een ticket maar één keer gebruikt kan worden. |
-| Beveiliging | Geen: een ticket kan meermaals gescand (of gekopieerd) worden. | Ja: een tweede keer scannen geeft een pop-up (bestand bestaat niet meer). |
+| Beveiliging | Geen controle of het ticket al gebruikt is. | Ja: een tweede keer scannen geeft een pop-up (bestand bestaat niet meer). |
 | kassys.dat | posities 4020–4029 | posities 3662, 3666, 3676 |
 | Barcode | begint met 99 (voorbeeld) | begint met de Tomra-prefix 980 |
 
@@ -110,10 +110,10 @@ De handscanner moet de (Code 128/Interleaved 2 of 5) Tomra-barcode kunnen lezen.
 
 | Symptoom | Oorzaak / oplossing |
 |---|---|
-| Pop-up bij het scannen van een Tomra-ticket | Het ticketbestand bestaat niet (meer): het ticket is al eens gescand/verzilverd, of het bestand is (nog) niet in de map aangekomen, of de kassa kan de map niet bereiken. |
-| Geen enkel ticket wordt gevonden; "T-drive maakt geen connectie met de kassa/scanner" | De netwerkschijf T: is niet verbonden. Scherm overnemen en in Verkenner op de T-schijf klikken: de verbinding komt dan meestal terug. Controleer ook of de hoofd-pc aanstaat en het netwerk daar op "Privé" staat. |
+| Pop-up bij het scannen van een Tomra-ticket | Het ticketbestand bestaat niet (meer): volgens de bron omdat het ticket al eens gescand is (het bestand wordt na het scannen gewist). Andere mogelijke oorzaken (afgeleid, te verifiëren): het bestand is niet in de map aangekomen of de kassa kan het Tomra-pad niet bereiken. |
+| Geen enkel ticket wordt gevonden; "T-drive maakt geen connectie met de kassa/scanner" | De netwerkschijf T: is niet verbonden. Scherm overnemen en in Verkenner op de T-schijf klikken: de verbinding komt dan meestal terug. |
 | Jamadata blijft bij het opstarten hangen op de T-schijf | De T-schijf was overbodig/onbereikbaar (dezelfde share was ook beschikbaar via een andere driveletter, P:). De T-schijf verwijderd, waarna Jamadata vlot opstartte. Kijk dus na welke netwerkschijven echt nodig zijn. |
-| Na vervanging/restore van de kassa werkt Tomra niet meer | Posities 3662/3666/3676 opnieuw zetten en de netwerkschijf T: opnieuw koppelen. |
+| Na vervanging/restore van de kassa werkt Tomra niet meer | Controleer de koppeling Tomra (staat op de controlelijst na een restore/vervanging): posities 3662/3666/3676 en het Tomra-pad (netwerkschijf). |
 | Oude XP-/POSReady-kassa kan de share op een Windows 10-pc niet meer koppelen | Zie §3.5. |
 
 ### 3.5 Oude kassa's (XP embedded Glaive, POSReady 2009 Rich-Pos) en een Windows 10-hoofd-pc

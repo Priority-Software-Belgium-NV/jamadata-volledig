@@ -19,7 +19,6 @@ Gebruik dit document voor: vragen over het aanmaken, aanpassen en schrappen van 
 | B | Beheer uitlenen/verhuren van materialen |
 | C | Beheer uitschrijven artikels voor Beedrop |
 | H | Herdrukken facturen |
-| U | (verborgen) Schrappen van een factuur |
 
 `F10 afhalingen/memo` in dit menu: memo van een klantenfiche aanpassen.
 
@@ -130,7 +129,7 @@ Aanpak bij een supportvraag ("de tekst staat niet / wel op mijn factuur"):
 | `V.8.H.1` → 1 | Bekijken/afdrukken van 1 factuur: geef het **factuurnummer**, of de **klant** (dan volgt een lijst van zijn facturen). **Jaartal** staat op het huidige jaar; wijzigen voor facturen van vorig jaar. **Subdirectory** staat op `\FTKOPIE\`; tijdelijk te wijzigen als oude facturen in een andere map bewaard worden |
 | `V.8.H.1` → 2 | Herafdrukken van alle facturen van 1 klant (bv. kopie voor de brouwerij) |
 | `V.8.H.2` | Uitschrijven detail van facturen naar TXT (voor Excel, bv. traceerbaarheid van een product) |
-| `V.8.U` (verborgen) | Schrappen van een factuur, met de mogelijkheid statistieken/voorraad terug te zetten |
+| Verborgen punt `U` op dit menu (`V.8.H`) | Schrappen van een foute factuur, met de mogelijkheid statistieken/voorraad terug te zetten. De bron zegt "op deze menu via punt U"; of dit het menu V.8.H of het bovenliggende menu V.8 is, is niet volledig eenduidig (te verifiëren) |
 
 Uitschrijven naar TXT, velden:
 
@@ -149,7 +148,7 @@ Veelvoorkomende problemen:
 |---|---|
 | Factuur van vorig jaar niet gevonden | Jaartal aanpassen in het selectiescherm |
 | Oude facturen niet gevonden | Ze zijn verplaatst: Subdirectory tijdelijk naar die map zetten |
-| Foute factuur moet weg | Gebruik `V.8.U` zodat statistieken en voorraad teruggezet kunnen worden; niet enkel in de boekhouding corrigeren |
+| Foute factuur moet weg | Gebruik het verborgen punt `U` (menu `V.8.H`) zodat statistieken en voorraad teruggezet kunnen worden; niet enkel in de boekhouding corrigeren |
 | Ontvanger ziet enkel strepen in de gemailde pdf | Zie `jamadrink-layouts-en-afdrukken.md` |
 
 ## 8. Mobiele leeggoedterugname op leveringsbons (module 0240C) – verwerking in Jamadrink

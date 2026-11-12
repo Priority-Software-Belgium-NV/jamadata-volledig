@@ -141,4 +141,4 @@ Uitgaande regels zijn normaal niet nodig (uitgaand staat standaard open). Bij kl
 - FAQ: "Opleiding Helpdesk Jamadata.docx" (hoofdstuk installatie nieuwe server)
 - FAQ / Jamadrink: "FAQ Jamadata SERVER.docx"
 - Onenote/FAQ: "Support.pdf"
-- Transcripties opleidingen: "THO_Migratie_20260601_162649.txt", "Dranken BAETS Migratie Server-20260611_132355-Opname van vergadering.txt"
+- Transcripties opleidingen: "[klant]_Migratie_20260601_162649.txt", "[klant] Migratie Server-20260611_132355-Opname van vergadering.txt"

@@ -45,7 +45,7 @@ De bron beschrijft niet waar het bestand geplaatst wordt of hoe het aan de lay-o
 
 Bron: OneNote-notitie "Aanpassen Lay-outs" (kort, deels in steekwoorden).
 
-- Pad in het programma: **Hoofdmenu Jamadata → `+` → `J` → `5` → `F8`**, daar staat een **vraagteken**. Dat opent het pdf-handleidingbestand, met daarin de link naar een **.msg-naar-.eml-convertor** (nodig om een in Outlook bewaard bericht om te zetten naar het .eml-formaat van de sjablonen).
+- Pad in het programma: **Hoofdmenu Jamadata → `+` → `J` → `5` → `F8`**, daar staat een **vraagteken**. Dat opent het pdf-handleidingbestand, met daarin de link naar een **.msg-naar-.eml-convertor** (vermoedelijk om een in Outlook bewaard .msg-bericht om te zetten naar .eml voor de sjablonen; de bron licht dit niet toe).
 - Locatie van de sjablonen bij de klant: **Deze computer > Jamadata (meestal de J-schijf) > Mail > Template**.
 - De notitie is getiteld "Aanpassen van mail template"; het gaat dus om de lay-out van mails, niet van de factuur zelf. Het inhoudelijk personaliseren van mailsjablonen staat in de documentatie mail (module 2800A).
 
@@ -75,7 +75,7 @@ De nummering van de modulehandleidingen (bv. 0023A Klantenrappels, 0234A Herafdr
 | "Ik wil een pdf in plaats van papier" | Pdf-knop rechtsonder op het afdrukscherm |
 | "Mijn klant ziet strepen in de factuur-pdf" | Instelling Acrobat Reader bij de ontvanger: afdrukken als afbeelding (§5) |
 | "Op blanco papier staat mijn firmanaam niet op de offerte" | `V.5.6.+` → Eigen firmagegevens afdrukken |
-| "Waar staan de mailsjablonen?" | `J:\...\Mail\Template` (Jamadata-map op de server) |
+| "Waar staan de mailsjablonen?" | Jamadata-schijf (meestal J:) > Mail > Template |
 | "De printer is bezet / print niet" | Foutcodes 17/18; printerparameters via `+ J 1`; verder zie documentatie printers |
 
 ## Bronnen

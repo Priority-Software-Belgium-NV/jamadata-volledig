@@ -124,4 +124,4 @@ Een aangepaste factuurlay-out (PNG + Word-bestand) wordt op dezelfde manier naar
 - Jamadrink: "Jamadata FAQ's.pdf" (JMS herstarten via de JMT, FOUT 01, kassa kan niet doorsturen)
 - Onenote: "Support.pdf" (volledigste exemplaar; FAQ/"Support.pdf" is een oudere export): updates, Out of memory, DHCP-ranges
 - FAQ/Kennisartikelen: "KA-003_Serverupdates.md", "KA-017_Stroomonderbreking_en_verbindingsproblemen.md" (gedeeltelijk gevalideerd)
-- Transcripties opleidingen: "Dranken BAETS Migratie Server-20260611...txt"
+- Transcripties opleidingen: "[klant] Migratie Server-20260611_132355-Opname van vergadering.txt"

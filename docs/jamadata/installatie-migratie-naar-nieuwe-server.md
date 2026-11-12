@@ -92,4 +92,4 @@ Zelfde stappen: controleren dat niemand werkt (**+ > J > T**), JMR stoppen, Desk
 - Onenote: "Jamadata Server.pdf" (notities "Back-up ophalen en overzetten van oude PC", "Jamadata Server overzetten naar cloud", 18/11/2024)
 - Jamadrink: "Installatiedraaiboek Jamadata 1.docx"
 - FAQ/Kennisartikelen: "KA-009_Servermigratie_controle_en_overdracht.md" (voorlopig, niet technisch gevalideerd)
-- Transcripties opleidingen: "THO_Migratie_20260601_162649.txt", "Dranken BAETS Migratie Server-20260611_132355-Opname van vergadering.txt", "vid backup.txt"
+- Transcripties opleidingen: "[klant]_Migratie_20260601_162649.txt", "[klant] Migratie Server-20260611_132355-Opname van vergadering.txt", "vid backup.txt"

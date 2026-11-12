@@ -162,4 +162,4 @@ Vuistregels geheugen: de Jamadata Server zelf ± 750 MB RAM, plus ± 125 MB per 
 - FAQ: "Opleiding Helpdesk Jamadata.docx" (mappenstructuur, licenties)
 - FAQ / Jamadrink: "FAQ Jamadata SERVER.docx"
 - Jamadrink: "HOWTO - Problemen met crashen JMS.docx"
-- Transcripties opleidingen: "THO_Migratie_20260601_162649.txt", "Dranken BAETS Migratie Server-20260611...txt", "vid backup.txt" (aanvullende details, gesproken bron)
+- Transcripties opleidingen: "[klant]_Migratie_20260601_162649.txt", "[klant] Migratie Server-20260611_132355-Opname van vergadering.txt", "vid backup.txt" (aanvullende details, gesproken bron)

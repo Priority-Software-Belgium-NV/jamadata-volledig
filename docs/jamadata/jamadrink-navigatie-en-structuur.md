@@ -56,7 +56,8 @@ Gebruik dit document voor: vragen over hoe je in Jamadrink (Jamadata Desktop) na
 | B | Beheer uitlenen/verhuren van materialen |
 | C | Beheer uitschrijven artikels voor Beedrop |
 | H | Herdrukken facturen |
-| U | (verborgen) Schrappen van een factuur, met terugzetten van statistieken/voorraad |
+
+Daarnaast bestaat een verborgen punt `U` (factuur schrappen met terugzetten van statistieken/voorraad); volgens de modulehandleiding 0234A zit dit op het menu Herdrukken facturen (`V.8.H`), zie `jamadrink-bons-en-facturen.md`.
 
 In menu V.8 kan je met `F10 afhalingen/memo` ook de memo van een klantenfiche aanpassen.
 
@@ -169,7 +170,7 @@ Deze punten zijn bedoeld voor supportmedewerkers. **Neem altijd eerst een back-u
 | Hoofdmenu voorraadbeheer `+` → optie `T` (verborgen) → `2` | Invullen/wissen van een veld in de database | Handleiding invullen veld database |
 | Hoofdmenu `+` `H` (bevestig back-up) → `3` | Fiches aanpassen a.h.v. Excel-bestand | 0093A |
 | `+.4` | Facturatieparameters (o.a. vaste teksten 1–4) | Boekhoudhandleiding via 13_TEKSTEN_SCOPE |
-| `V.8.U` | Factuur schrappen met herstel statistieken/voorraad | 0234A |
+| `V.8.H` → `U` (verborgen) | Factuur schrappen met herstel statistieken/voorraad | 0234A |
 
 ### Scherm van een klant overnemen via JMD (Jamadata Desktop)
 

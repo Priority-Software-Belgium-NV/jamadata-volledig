@@ -130,4 +130,4 @@ Aandachtspunten:
 - FAQ: "Opleiding Helpdesk Jamadata.docx"
 - FAQ / Jamadrink: "FAQ Jamadata SERVER.docx"; Onenote: "Jamadata Server.pdf" (restore-notitie)
 - FAQ/Kennisartikelen: "KA-004_Backups_en_herstel.md" (gedeeltelijk gevalideerd)
-- Transcripties opleidingen: "vid backup.txt", "THO_Migratie_20260601_162649.txt", "Dranken BAETS Migratie Server-20260611...txt" (gesproken bronnen)
+- Transcripties opleidingen: "vid backup.txt", "[klant]_Migratie_20260601_162649.txt", "[klant] Migratie Server-20260611_132355-Opname van vergadering.txt" (gesproken bronnen)

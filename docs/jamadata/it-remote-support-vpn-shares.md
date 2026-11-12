@@ -173,4 +173,4 @@ Bron: "Veranderen driveletter USB-apparaat.pdf" (map IT; de .docx bevat enkel af
 - Jamadrink: "HOWTO-Jamadata Share aanmaken.pdf"
 - Jamadrink: "Installatie jamadata Dektop 2.0.docx"
 - Jamadrink: "Jamadata FAQ's.pdf"; Onenote/FAQ: "Support.pdf"
-- Transcripties opleidingen: "Terug een t schijf aanmaken.txt", "THO_Migratie_20260601_162649.txt"
+- Transcripties opleidingen: "Terug een t schijf aanmaken.txt", "[klant]_Migratie_20260601_162649.txt"
