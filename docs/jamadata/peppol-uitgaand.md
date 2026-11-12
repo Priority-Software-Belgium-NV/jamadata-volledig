@@ -108,7 +108,7 @@ In een oudere HOWTO (UBL 2.1 via CodaBox, vóór de rechtstreekse Peppol-koppeli
 - In Jamadata moest de **share voor de XML/UBL-facturen** juist staan: hoofdmenu **"+.4"**; de map **`UBL` onder de map `Share`** (`..\share\UBL`) moest bestaan.
 - Op het eindscherm van de facturatie klikte je op het icoon om de factuur via CodaBox te versturen; er opende dan automatisch een mail die je zelf moest verzenden.
 
-Dit is enkel relevant voor oude installaties. Op huidige installaties gebeurt het versturen automatisch zoals in punt 3. De map `UBL` (o.a. `fact UBL`) bestaat nog steeds onder de Jamadata-map en moet bij een herinstallatie/verhuis volledig mee overgezet worden (uit opleiding, 24-06-2026).
+Dit is enkel relevant voor oude installaties. Op huidige installaties gebeurt het versturen automatisch zoals in punt 3. Onder de Jamadata-map staat ook nu nog een map met de UBL-bestanden van facturen (in de opname klinkt de naam als "fact UBL"; exacte mapnaam te verifiëren); die moet bij een herinstallatie/verhuis volledig mee overgezet worden (uit opleiding, 24-06-2026).
 
 ## 9. Verschillen tussen handleiding V3 en V4/V4.3
 
