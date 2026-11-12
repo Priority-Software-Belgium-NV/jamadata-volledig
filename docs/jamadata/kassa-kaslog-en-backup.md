@@ -16,7 +16,7 @@ Bij de dagelijkse transfer (N/K) gaat een kopie van de verkoopgegevens naar de h
 
 Het maximaal aantal records van de kaslog staat in `kassys.dat` positie 3588 (`rec_aantal`, standaard 70000, max. 150000). Je ziet de bezetting door in het kassamenu bovenaan op de rode titel "Menu: beheer key-conen kassa" te drukken.
 
-**Klassiek systeem**: de klant moet af en toe via kassamenu **punt A "Wissen van de verkoopgegevens van de kassa"** de kaslog leegmaken (de oude wordt `kaslog.001`). **Kaslog per maand**: er hoeft niet meer manueel gewist te worden.
+**Klassiek systeem**: de klant moet af en toe via kassamenu **punt A "Wissen van de verkoopgegevens van de kassa"** de kaslog leegmaken (de vorige periode blijft vermoedelijk bewaard als `kaslog.001`). **Kaslog per maand**: er hoeft niet meer manueel gewist te worden.
 
 ## 2. Kaslog per maand instellen (maandelijkse KL-bestanden)
 
