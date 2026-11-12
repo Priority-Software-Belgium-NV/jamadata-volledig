@@ -14,7 +14,7 @@ Bron: opleiding 28-05-2026 (ca. 00:00–00:06), 07-05-2026 (ca. 00:20).
 - **Dagelijkse transfer met de hoofdcomputer (JMS)**: punt `N` in het kassamenu. Werkt in twee richtingen: haalt artikelen/prijzen op van de server en stuurt alles uit de kassamap (verkopen) naar de server. ± 80 % van de klanten gebruikt deze gewone transfer.
 - **Transfer via de server van Jamadata**: punt `K` in het kassamenu, voor kassa's die niet in hetzelfde netwerk zitten als de hoofdcomputer en geen VPN hebben. De kassa zipt haar gegevens en zet ze op de centrale communicatieserver; op de hoofdcomputer staat een icoon "doorsturen/ophalen gegevens kassa" om ze daar op te halen en nieuwe gegevens klaar te zetten. Afbreken van een wachtende verbinding: `Esc` of het kruisje.
 - Verandert het IP-adres van de server, dan moet ook de communicatie-instelling op elke kassa aangepast worden (zie server-document).
-- Kassa's van de **Mono**-versie kunnen niet op afstand overgenomen worden via het pakket; daar is een gewone schermovername met medewerking van de klant nodig. (opleiding 19-05-2026, ca. 00:21)
+- Bij klanten met de **Mono**-versie kan support niet via de eigen supportpost in het pakket van de klant kijken; daar is een gewone schermovername met medewerking van de klant nodig. (opleiding 19-05-2026, ca. 00:21)
 - Voor problemen op de kassa heb je **het scherm van de kassa zelf** nodig; via een pc in een ander gebouw kan je niets zien. (opleiding 20-05-2026 voormiddag, ca. 00:06)
 
 ## 2. Opstarten en afsluiten
@@ -81,7 +81,7 @@ Bron: opleiding 28-05-2026 (ca. 00:09, 00:30 en 01:02–01:13).
 - Na **Einde**: bedrag intikken + betaalmiddel (geld, betaalautomaat, maaltijdcheque, ecocheque, consumptiecheque, ...). Bij cash toont de kassa het terug te geven bedrag (ook op het klantendisplay en het ticket), gaat de geldlade open en wordt het ticket gedrukt.
 - De meeste betaalknoppen zijn vaste knoppen (tekst niet aanpasbaar); er zijn enkele vrij instelbare betaalmiddelen waarvan tekst en parameters te kiezen zijn. Bij de klant worden enkel de gebruikte betaalmiddelen getoond.
 - Een gekoppelde betaalterminal moet verbonden zijn; anders kan het betaalmiddel "betaalautomaat" niet afgewerkt worden.
-- **Alarm/geldlade-knop**: opent de geldlade zonder verkoop. Er kan in de parameters een code achter gezet worden.
+- **Alarm/geldlade-knop**: opent de geldlade zonder verkoop. Volgens de opleiding kan er in de parameters een code aan gekoppeld worden *(te verifiëren)*.
 
 ### Kortingsbon van een fabrikant ("Bon")
 
@@ -105,7 +105,7 @@ Bron: opleiding 28-05-2026 (ca. 00:18–00:36).
 - In de klantenkaartfiche: e-mailadres (staat niet op de identiteitskaart, zelf aan te vullen), codes voor promomailings, GDPR-akkoord (de klant hoort een toestemming te ondertekenen; daarna aanvinken), klant sinds, omzet, laatste aankopen met punten. Via `+`: extra opties, o.a. omzet per artikelgroep, GDPR-export, een tweede kaart koppelen aan dezelfde klant.
 - **Verenigingskaarten**: leden van een vereniging sparen met hun kaart ook voor de vereniging (als vorm van sponsoring).
 - Prik&Tik-winkels gebruiken een extern klantenkaartsysteem (Freedelity – *schrijfwijze te verifiëren*), waarbij de punten online bij die aanbieder bijgehouden worden en de klant ze via een webtoepassing kan raadplegen. Dat is niet het ingebouwde systeem.
-- **Factuur- of klantenkaartscherm blijft hangen op de kassa**: het scherm van de bijhorende post op de server hangt vast. Oplossing: de werkposten herstarten (Help → alle posten herstarten) nadat gecontroleerd is dat niemand een bon of factuur aan het maken is. Tip: kies op de kassa in het factuurscherm eerst een klant en ga dan pas terug, in plaats van meteen "terug" te drukken.
+- **Factuur- of klantenkaartscherm blijft hangen op de kassa**: het scherm van de bijhorende post op de server hangt vast. Oplossing: de werkposten herstarten (Help → alle posten herstarten) nadat gecontroleerd is dat niemand een bon of factuur aan het maken is.
 
 ## 7. Verkoopbestand van de kassa
 

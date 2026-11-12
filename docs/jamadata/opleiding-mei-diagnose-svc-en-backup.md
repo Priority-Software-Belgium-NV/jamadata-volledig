@@ -1,8 +1,8 @@
 # Praktijkkennis opleiding mei 2026: diagnose, SVC en back-up
 
-> **Waarschuwing.** Deze inhoud komt uit gesproken opleidingssessies (automatische Whisper-transcriptie, mei 2026). Het is ervaringskennis van een expert, deels "trial and error", en kan herkenningsfouten bevatten in map- en bestandsnamen. Controleer bij twijfel tegen de handleiding en overleg met tweede lijn/ontwikkeling vóór ingrepen op de database. Punten met *(te verifiëren)* waren niet eenduidig.
-
 Gebruik dit document voor: de diagnosevolgorde bij de meest voorkomende telefonische problemen ("Jamadata Desktop wacht op serversessie", pakket start niet na update, database blokkeert of herstart telkens, back-up werkt niet), het lezen van de SVC, en hoe de verschillende back-ups (automatische kopie op stick/NAS, manuele back-up, online back-up) werken.
+
+> **Waarschuwing.** Deze inhoud komt uit gesproken opleidingssessies (automatische Whisper-transcriptie, mei 2026). Het is ervaringskennis van een expert, deels "trial and error", en kan herkenningsfouten bevatten in map- en bestandsnamen. Controleer bij twijfel tegen de handleiding en overleg met tweede lijn/ontwikkeling vóór ingrepen op de database. Punten met *(te verifiëren)* waren niet eenduidig.
 
 Voor de betekenis van JMS, JMR, JMT, JMD, jms.ini en SVC: zie `opleiding-mei-server-installatie-en-migratie.md`.
 

@@ -91,7 +91,7 @@ De opbouw volgens de opleiding (nummers van submenu's waar genoemd):
 | 1. Afspraak per afspraak | Klant + artikel (of leverancier, merk of groep) ingeven en de kortingen invullen. |
 | 2. Via de lijst van de artikels | Klant ingeven; zonder verdere selectie worden alle artikels getoond, of beperk tot één groep, leverancier of merk. Je vult de korting per artikel in de lijst in. |
 | 3. Op groepen | Klant ingeven; je ziet alle groepen en zet per groep de korting in één lijn. Aanbevolen als de groepen goed ingedeeld zijn: één lijn i.p.v. honderd artikels apart. |
-| 4. Alle artikels van een gemaakte offerte inladen in prijsafspraken | Klant ingeven, offerte kiezen (vergrootglas), bevestigen "wenst u deze offerte toe te voegen aan de prijsafspraken". De kortingen uit de offerte worden automatisch prijsafspraken. (Offertes: V.5, zie handleiding 0266A.) |
+| 4. Alle artikels van een gemaakte offerte inladen in prijsafspraken | Klant ingeven, offerte kiezen (vergrootglas), bevestigen "wenst u deze offerte toe te voegen aan de prijsafspraken". De kortingen uit de offerte worden automatisch prijsafspraken. (Beheer offertes: zie handleiding 0266A.) |
 
 ### Aanpassen/bekijken van een bestaande fiche
 

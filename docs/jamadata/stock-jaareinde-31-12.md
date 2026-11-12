@@ -10,7 +10,7 @@ Het jaareinde is het moment om die extra backup te nemen, van Jamadata én van d
 
 ## Wat heb je nodig
 
-Een **USB-stick van minstens 4 GB**. Is er na de Jamadata-backup nog plaats, dan mag de stick ook voor eigen documenten/mails gebruikt worden. Bewaar de stick daarna op een andere plaats dan de computer.
+Een **USB-stick van minstens 4 GB**. Is er na de Jamadata-backup nog plaats, dan mag de stick ook voor eigen documenten/mails gebruikt worden.
 
 ## Voorwaarden: wat moet vooraf in orde zijn
 
@@ -57,7 +57,7 @@ Zitten de creditnota's in een ander journaal (eigen nummering), dan moet dat num
 | Mijn creditnota's nummeren verder met het oude jaar | Creditnota's zitten in een apart journaal: nummer manueel op nul zetten via parameters → "Aanpassen factuur/bonnummer". |
 | Er zijn nog bons van december niet gefactureerd | Eerst factureren; alle bons t.e.m. 31/12 moeten gefactureerd zijn vóór V.A.1. |
 | Moeten aankoopfacturen en bankverrichtingen al ingegeven zijn? | Niet verplicht, wel aanbevolen. |
-| Welke stick mag ik gebruiken? | Minstens 4 GB; een andere dan de permanente backup-stick, zodat hij buiten het bedrijf bewaard kan worden. |
+| Welke stick mag ik gebruiken? | Een USB-stick van minstens 4 GB. Het doel is een backup die elders (privé/kluis) bewaard wordt. |
 
 ## Bronnen
 

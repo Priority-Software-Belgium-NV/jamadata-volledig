@@ -246,7 +246,7 @@ Identiek aan de manuele inventaris: **V.A.2.5** overkopiëren naar inventaris 1/
 | Inventaris wijzigt nog na het tellen | Er is niet overgekopieerd naar inventaris 1/1 (V.A.2.5), of er is gefactureerd/ingelezen tussen het ingeven en het overkopiëren. |
 | "Op nul zetten" of "overkopiëren" doet niets | De bevestigingsvraag stond nog op N; J invullen. |
 | Aantallen van de tweede tellijst overschrijven de eerste | Er is in de kolom STOCK ingegeven in plaats van WIJZIGING (F9 om te wisselen). |
-| Datum van de inventaris is fout | Kan na V.A.2.5 niet meer gewijzigd worden; V.A.2.5 opnieuw uitvoeren kan enkel zolang de actuele stock nog overeenkomt met de telling. Anders individueel corrigeren. |
+| Datum van de inventaris is fout | Volgens de handleiding kan de datum na V.A.2.5 niet meer gewijzigd worden. Opnieuw overkopiëren overschrijft de vorige inventarisgegevens met de stock van dat moment; of dat nog verantwoord is, hangt af van wat er intussen gefactureerd is (te beoordelen door support). |
 | Inventariswaarde lijkt fout | Inventarisprijs = netto-aankoopprijs op het moment van V.A.2.5. Corrigeer per artikel via V.A.2.C of de artikelfiche. Bij veel prijswijzigingen sinds 31/12: inventaris in het vorige dossier maken. |
 | Clip staat niet op de inventaris | Normaal: clips worden bij het hoofdartikel geteld. |
 | Leeggoedwaarde volle bakken ontbreekt | "Leeggoed-waarde naast ieder artikel drukken" op J zetten. |

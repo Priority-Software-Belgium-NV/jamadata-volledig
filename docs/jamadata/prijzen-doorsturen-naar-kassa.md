@@ -27,6 +27,8 @@ Bovenaan staat een **datum promoties (en prijswijzigingen)**. Die bepaalt welke 
 
 Voorbeeld uit de handleiding: op 11/09 kost een artikel 10 euro en op 20/09 gaat een promotie of prijsstijging in. Die nieuwe prijs wordt al meegegeven en gaat op de kassa automatisch in op 20/09, zonder tussentijdse synchronisatie. Stopt de promotie op 30/09, dan moet er **op of na 20/09 nog eens gesynchroniseerd** worden; dan stopt de promotie ook automatisch op 30/09.
 
+Tegenstrijdigheid tussen bronnen (te verifiëren per installatie/versie): handleiding 0295A (kassapromoties) zegt dat de promotieperiode **niet** aan de kassa wordt meegegeven en dat er dus zowel vóór de start als bij het einde van een promotie opnieuw uitgeschreven en gesynchroniseerd moet worden. Veilig advies: synchroniseer op de dag dat een promotie of prijswijziging ingaat en op de dag dat een promotie stopt, en controleer een artikel op de kassa.
+
 Tip: door de datum op bv. morgen te zetten, kan je een folder al klaarzetten zodat de kassa's de nieuwe prijzen binnenkrijgen bij de ochtendverbinding.
 
 ## Stap 2 (en 3) – Doorsturen en ophalen

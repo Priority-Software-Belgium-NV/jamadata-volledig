@@ -85,7 +85,7 @@ Bron: opleiding 20-05-2026 namiddag (ca. 00:37–01:13).
 | Provider | Instelling | Opmerking |
 |---|---|---|
 | Telenet | `smtp.telenet.be`, poort 587, login met het Telenet-adres en wachtwoord, beveiliging auto | Werkt. |
-| Proximus | relayserver van Proximus (zoek de actuele servernaam en poort op bij de provider), poort 587 met login | Werkt. |
+| Proximus | relayserver van Proximus met login (zoek de actuele servernaam en poort op bij de provider) | Werkt. |
 | Microsoft 365 (bedrijfsadres) | `smtp.office365.com`, poort 587, login met het mailadres en wachtwoord, auto | Werkt **enkel** als de IT'er van de klant voor die mailbox "geverifieerde SMTP" (SMTP AUTH) inschakelt; standaard staat dat uit en met tweestapsverificatie werkt het nooit. Geschat ± 75 % van de klanten gebruikt dit. IT'ers merken op dat dit niet meer de voorkeursmethode is. |
 | Onbeveiligd via de internetprovider (zonder login) | – | Niet meer aanraden: werkt soms voor enkele mails, maar een deel komt niet aan. |
 | Hotmail/Outlook.com, Gmail | – | Werken niet meer met gewone SMTP-login. OAuth wordt door de mailfunctie niet ondersteund. |

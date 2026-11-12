@@ -1,8 +1,8 @@
 # Praktijkkennis opleiding mei 2026: server, installatie, migratie en netwerk
 
-> **Waarschuwing.** Deze inhoud komt uit gesproken opleidingssessies (automatische Whisper-transcriptie, mei 2026). Productnamen en bestandsnamen zijn waar nodig gecorrigeerd, maar details (toetsen, mapnamen, poortnummers) kunnen herkenningsfouten bevatten. Controleer bij twijfel tegen de officiële handleiding (o.a. "Installatie nieuwe Jamadata-server en overzetten gegevens", "Voorbereiding nieuwe computer", "Installatie Jamadata Desktop"). Punten gemarkeerd met *(te verifiëren)* waren in de opname niet eenduidig.
-
 Gebruik dit document voor: vragen over hoe een Jamadata-server technisch in elkaar zit (JMS, JMR, JMT, JMD, jms.ini, Windows-gebruiker), hoe je een server voorbereidt, installeert of migreert naar een nieuwe pc/cloudserver, welke poorten en netwerkinstellingen nodig zijn, en hoe programma-updates en nieuwe JMS-versies bij de klant terechtkomen.
+
+> **Waarschuwing.** Deze inhoud komt uit gesproken opleidingssessies (automatische Whisper-transcriptie, mei 2026). Productnamen en bestandsnamen zijn waar nodig gecorrigeerd, maar details (toetsen, mapnamen, poortnummers) kunnen herkenningsfouten bevatten. Controleer bij twijfel tegen de officiële handleiding (o.a. "Installatie nieuwe Jamadata-server en overzetten gegevens", "Voorbereiding nieuwe computer", "Installatie Jamadata Desktop"). Punten gemarkeerd met *(te verifiëren)* waren in de opname niet eenduidig.
 
 ## 1. Begrippen en onderdelen
 
