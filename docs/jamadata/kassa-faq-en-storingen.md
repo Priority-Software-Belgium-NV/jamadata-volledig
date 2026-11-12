@@ -7,7 +7,7 @@ Gebruik dit document voor: een eerste diagnose bij veelvoorkomende helpdeskvrage
 | Vraag / symptoom | Oplossing |
 |---|---|
 | Hoe zet ik de kassa aan? | Druk op het rode lampje onderaan het scherm; het wordt blauw en de kassa start op. |
-| Hoe meld ik aan in Windows? | Afbeeldingswachtwoord: druk op de 3 Jamadata-icoontjes (de vierkantjes, niet de tekst) van boven naar onder. |
+| Hoe meld ik aan in Windows? | Met het afbeeldingswachtwoord (aanraken van de Jamadata-icoontjes; volgorde: zie interne bron "afbeeldingswachtwoord kassa.pdf"). |
 | De kassa vraagt een getypt wachtwoord | Het afbeeldingswachtwoord is 3× fout ingegeven. Geef het gewone wachtwoord van de gebruiker `kassa` in (zie interne bron); daarna werkt het afbeeldingswachtwoord opnieuw. Zo niet: helpdesk. |
 | "!!!Ongeldige serienummer!!!" bij het starten van het kassaprogramma | Overrulen met **F4** en dan **F10**. Komt voor na het overzetten van kassys.dat naar andere hardware en bij een mobiele kassa. |
 | De kassa start op vanaf de USB-stick | USB-stick uittrekken, zo 2 keer opstarten, daarna de stick terug insteken. |

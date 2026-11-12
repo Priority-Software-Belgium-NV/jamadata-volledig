@@ -96,9 +96,22 @@ De koppeling is dezelfde als bij de prijzenbestanden (zie `prijzen-prijzenbestan
 
 Via V.5.9: "enkel artikels in promotie op kassa", of F9 "laad promoties" in het invulscherm, met de juiste prijsdatum. Zie `prijzen-prijsaffiches-en-prijskaartjes.md`.
 
-### Oude versie
+### Oud systeem: kassa-formules (enkel voor oude installaties)
 
-`0295A - Kassa-promoties_old.docx` beschrijft het vroegere systeem (o.a. kassa-formules A-T). Enkel relevant voor oude installaties; niet verwerkt.
+De gebruikershandleiding JAMADRINK 2.0 ("Promoties op de kassa") beschrijft de vier formuletypes van het oude systeem. Elke formule wordt ingegeven met maximaal vier getallen:
+
+| Formule | Betekenis | Getallen | Voorbeeld |
+|---|---|---|---|
+| 1 – % korting | Een procentuele korting | Getal 1 = % korting | 5 % korting → `5` |
+| 2 – Aantal gratis | Bij een aantal, een aantal gratis | Getal 1 = minimumaantal, Getal 2 = aantal gratis vanaf het minimum | 10 + 2 gratis → `10`, `2` |
+| 3 – % korting OF gratis | % korting vanaf een aantal | Getal 1 = minimumaantal, Getal 2 = % korting vanaf het minimum | Vanaf 10, rest aan 5 % → `10`, `5` |
+| | Aantal gratis vanaf een aantal | Getal 3 = minimumaantal, Getal 4 = aantal gratis | Vanaf 10, 3 gratis → getal 3 `10`, getal 4 `3` |
+| | Beide gecombineerd | Getal 1/2 voor de korting, Getal 3/4 voor gratis | Vanaf 5 rest aan 10 %, vanaf 10 3 gratis → `5`, `10`, `10`, `3` |
+| 4 – Aantal met korting | Een aantal stuks met % korting vanaf een aantal | Getal 1 = minimumaantal, Getal 2 = aantal dat korting krijgt, Getal 3 = % korting | 2e aan halve prijs → `1`, `1`, `50` |
+
+Handleiding 0295A raadt aan dit oude systeem niet meer te gebruiken en de promotietypes op de promotiefiche te kiezen.
+
+`0295A - Kassa-promoties_old.docx` beschrijft het vroegere systeem (o.a. kassa-formules A-T) en is niet apart verwerkt.
 
 ## Deel 2 – Factuurpromoties (V.3.9)
 
@@ -185,3 +198,4 @@ Waar: Hoofdmenu Voorraadbeheer → punt 2 "Beheer Key-Conen kassa" → punt **D*
 - `0290C - Lijst verkochte artikels in promotie.docx` — Jamadrink/Handleidingen modules
 - `xxxxx - Klaarzetten - doorsturen prijzen.docx` — Jamadrink/Handleidingen modules
 - `0261A - Prijsaffiches.docx` — Jamadrink/Handleidingen modules
+- `gebruikershandleiding JAMADRINK 2.0.docx` (extra nota "Promoties op de kassa", p. 77) — Jamadrink
