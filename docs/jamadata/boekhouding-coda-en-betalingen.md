@@ -150,7 +150,7 @@ Per klant met vervallen facturen kan u facturen afvinken of een ander bedrag int
 
 ### 4.1 Waarvoor
 
-Het inboeken van bankafschriften automatiseren. Via het bankprogramma (of een dienst zoals CodaBox) worden de afschriften als **CODA-bestand** opgeslagen; de module leest ze in en boekt ze. Ondersteunt **CODA-standaard versie 2.3.A**.
+Het inboeken van bankafschriften automatiseren. Via het bankprogramma worden de afschriften als **CODA-bestand** opgeslagen; de module leest ze in en boekt ze. Ondersteunt **CODA-standaard versie 2.3.A**.
 
 - Op de verkoopfacturen staat een **gestructureerde mededeling**. Geeft de klant die mee bij zijn betaling, dan wijst de computer de betaling automatisch toe aan de juiste factuur.
 - Met de module betaalopdrachten worden ook de uitgaande betaallijsten automatisch toegewezen.
@@ -222,7 +222,7 @@ Het overzicht toont alle bewegingen van het uittreksel. **Lijnen in het rood** k
 
 - Bankuittreksels worden manueel ingeboekt via `B.2.1` (zie `boekhouding-facturen-en-financiele-verrichtingen.md`).
 - Wie enkel klanten opvolgt, kan `B.2.2` "Afboeken openstaande klantfacturen via lijst" gebruiken.
-- De oude gebruikershandleiding vermeldt daarnaast een optie "Automatisch inboeken bankuittreksels voor inkomende betalingen" (gestructureerde klantbetalingen, B.5.0.3) en "OGM-verwerking via diskette" (2.4); dit zijn voorlopers van de CODA-module.
+- De oude gebruikershandleiding vermeldt daarnaast een optie "Automatisch inboeken bankuittreksels voor inkomende betalingen" (gestructureerde klantbetalingen, B.5.0.3) en "OGM-verwerking via diskette" (2.4); daarvoor is geen aparte handleiding in de bronnen (vermoedelijk oudere varianten van de CODA-verwerking, te verifieren).
 
 ## Bronnen
 

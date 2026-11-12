@@ -2,7 +2,7 @@
 
 Gebruik dit document voor: vragen over hoe Jamadrink de korting of prijs van een klant bepaalt (groep, klantenfiche, artikelfiche, prijsafspraken), in welke volgorde kortingen voorrang hebben, hoe je prijsafspraken bekijkt, toevoegt, kopieert, afdrukt of schrapt, wat een uitgestelde ("semestriële") korting is en hoe daar creditnota's van gemaakt worden, en wat er met vaste prijsafspraken gebeurt bij een prijswijziging.
 
-Belangrijk: het grootste deel van dit document komt uit een opgenomen interne opleiding (uit opleiding, 24-10-2025), aangevuld met de handleiding 0240B en de AI-gecureerde checkpoints 18 en 19. Exacte toetsen en schermnamen uit de opleiding zijn waar nodig gemarkeerd als "te verifiëren". Er is geen aparte modulehandleiding "prijsafspraken" in de map Handleidingen modules; de algemene gebruikershandleiding JAMADRINK 2.0 bevat wel een hoofdstuk (niet in dit document verwerkt).
+Herkomst: dit document combineert de geschreven gebruikershandleiding JAMADRINK 2.0 (hoofdstuk V.9.5 "Beheer prijsafspraken" en de extra nota's "Werking van kortingen" en "Vaste prijs omzetten naar percentage korting"), een opgenomen interne opleiding (uit opleiding, 24-10-2025) en de handleiding 0240B. Menunummers en toetsen in de sectie "Menu Beheer prijsafspraken" komen uit de geschreven handleiding. Wat enkel uit de opleiding komt, is zo gemarkeerd. Waar handleiding en opleiding elkaar tegenspreken, staat dat uitdrukkelijk vermeld (zie ook de sectie "Tegenstrijdigheden tussen de bronnen").
 
 ## De opbouw van kortingen: vier niveaus
 
@@ -33,7 +33,12 @@ Een prijsafspraak is altijd een combinatie van **één klant** met één van:
 - een **artikel**,
 - een **artikelgroep**,
 - een **leverancier** (bij wie je het artikel aankoopt),
-- een **merk/fabrikant** (wie het produceert).
+- een **merk/fabrikant** (wie het produceert),
+- of een **combinatie** van bovenstaande (volgens de handleiding).
+
+"Klant" is altijd een verplicht veld. Een korting kan meteen gelden of pas **vanaf een bepaalde datum** (handleiding, V.9.5.2.1).
+
+De prijsafspraken van een klant zijn ook te openen vanuit de klantenfiche (V.9.2.1): bij de extra opties van de detailfiche staat **Prijsafspraken** (overzicht van alle prijsafspraken van deze klant).
 
 De meeste afspraken worden op groep of op artikel gemaakt; op leverancier of merk/fabrikant komt minder voor.
 
@@ -46,10 +51,23 @@ Van hoogste naar laagste voorrang:
 3. Prijsafspraak op **groep**
 4. **Algemene korting** op de klantenfiche
 
+Deze volgorde staat letterlijk in de gebruikershandleiding JAMADRINK 2.0 ("Werking van kortingen": 1 artikel, 2 leverancier, 3 groep, 4 klant; 1 heeft de hoogste prioriteit) en komt overeen met de opleiding.
+
 Regels:
-- De meest specifieke afspraak **vervangt** de minder specifieke. Kortingen worden **niet opgeteld** en het is ook **niet "de hoogste wint"**. Voorbeeld uit de opleiding: klant heeft 22 % algemeen, groep "alcoholvrij" 10 % → voor die groep geldt 10 %. Groep "frisdrank in bak" 24 %, leverancier Coca-Cola 25 % → voor Coca-Cola-artikels geldt 25 %.
+- De meest specifieke afspraak **vervangt** de minder specifieke. Kortingen **stapelen niet op** (handleiding: "behalve bij enkele uitzonderingen", zie de combinatie vaste prijs + percentage en acties hieronder) en het is ook **niet "de hoogste wint"**. Een korting op het artikel zorgt dat alle andere kortingen genegeerd worden.
+- Voorbeelden uit de handleiding (bak bier van 10 euro):
+
+  | Situatie | Klant betaalt | Toegepast |
+  |---|---|---|
+  | Geen korting | 10,00 | – |
+  | Klant 10 % | 9,00 | 10 % |
+  | Klant 10 %, leverancier 12 % | 8,80 | 12 % |
+  | Klant 10 %, groep 15 %, vaste prijs 8,50 op het artikel | 8,50 | vaste prijs |
+  | Klant 10 %, vaste prijs 8,50 op het artikel, actie met 20 % korting op deze bak | 6,80 | vaste prijs met 20 % korting |
+
+- Voorbeeld uit de opleiding: klant heeft 22 % algemeen, groep "alcoholvrij" 10 % → voor die groep geldt 10 %. Groep "frisdrank in bak" 24 %, leverancier Coca-Cola 25 % → voor Coca-Cola-artikels geldt 25 %.
+- **Inconsistentie in de handleiding zelf (te verifiëren)**: één voorbeeldrij geeft bij "klant 10 %, groep 15 %, leverancier 12 %" als resultaat 7,50 euro met "15 % korting". Dat klopt niet met de opgegeven volgorde (leverancier vóór groep → 12 % = 8,80 euro) en ook niet rekenkundig (15 % van 10 euro = 8,50). Volg de genummerde volgorde, die ook door de opleiding bevestigd wordt; test bij twijfel op een proefbon.
 - Staat er op een artikellijn binnen een afspraak **niets** ingevuld, dan valt het artikel terug op het volgende niveau (groep/leverancier/algemene korting). Wil je echt géén korting, dan moet je **"geen korting"** zetten (F10, zie verder).
-- Deze volgorde wordt bevestigd door zowel de gebruikershandleiding JAMADRINK 2.0 als een tweede opleiding (bron: checkpoint 18).
 - Een actieve **factuurpromotie** (V.3.9) komt nog bovenop: een speciale promotieprijs gaat vóór een prijsafspraak met speciale prijs, en promotiekortingen worden ná de klantkortingen afgetrokken. Zie `promoties.md`.
 
 ## Soorten korting in een prijsafspraak
@@ -64,15 +82,35 @@ Regels:
 | Tussenkomst leverancier (% of bedrag per vat/eenheid) | Het deel van de korting dat de leverancier/brouwer voor zijn rekening neemt. De klant ziet hier niets van; het wordt bijgehouden in een statistiek zodat de drankenhandel het bedrag op het einde van het jaar bij de leverancier kan terugvorderen. Enkel zichtbaar in het detailscherm (F9 detail). |
 
 - Wat op het scherm niet invulbaar is, is voor dat type afspraak niet mogelijk. Bij een afspraak op groep/leverancier kan bijvoorbeeld geen speciale verkoopprijs en geen uitgestelde korting in geld ingegeven worden.
-- **Combinatie vaste prijs + percentage** kan: de korting in % wordt dan nog toegepast op de vaste prijs (voorbeeld uit de opleiding: vaste prijs 3,30 met nog 5 % korting daarop). Tel dit dus niet blind op en sluit het ook niet uit; kijk wat er op de fiche staat.
+- **Combinatie vaste prijs + percentage** kan (bevestigd door handleiding en opleiding): heeft een artikel een percentage én een vaste prijs, dan wordt het percentage gegeven **op de vaste prijs** (opleiding: vaste prijs 3,30 met nog 5 % korting daarop). Enkel een percentage → korting op de normale standaardprijs. Enkel een vaste prijs → de klant betaalt de vaste prijs, los van de standaardprijs.
+
+Kolomnamen in de lijsten: **Kort%** = korting in percentage, **Vaste VP** = vaste verkoopprijs, **Kort/hl** = korting per hectoliter.
 
 ### Detailscherm van een afspraak (F9 detail)
 
-- Toont dezelfde gegevens onder elkaar (in plaats van in kolommen) plus de extra velden.
-- **F7** (raadplegen/aanpassen): toont met welk kortingspercentage een vaste prijs overeenkomt (bv. "20 euro = 46,8 % korting"). Bedoeld om een vaste prijs om te zetten naar een percentage. In de opleiding werkte het terugrekenen niet zoals verwacht (onzeker / te verifiëren).
-- **Prijs niet aanpassen via prijsbeheer tot [datum]**: vinkje + datum. Een vaste prijs met dit vinkje wordt bij een prijswijziging (V.3.3/V.3.4/prijzenbestand) niet aangepast tot die datum. Gebruikt voor raamovereenkomsten, bv. met gemeentes, die een jaar vaste prijs eisen.
-- **Vrije opmerking** (kort veld): bv. nummer van de raamovereenkomst of het contract.
-- **F8** = aannemen/wegschrijven (te verifiëren per scherm).
+- Toont dezelfde gegevens onder elkaar (in plaats van in kolommen) plus de extra velden. De vaste prijs heet hier **"Speciale verkoopprijs"**, het percentage **"Korting in percentage"**.
+- **F7 aanpassen/raadplegen**: wisselt tussen raadplegen en aanpassen en toont met welk kortingspercentage een vaste prijs overeenkomt (bv. "20 euro = 46,8 % korting").
+- **F10 korting**: heft een eerder gezette "GEEN korting" weer op.
+- **F8 schrijf weg**: de fiche opslaan en terug naar de lijst.
+- **Prijs niet aanpassen via prijsbeheer tot [datum]**: vinkje + datum. Een vaste prijs met dit vinkje wordt bij een prijswijziging (V.3.3/V.3.4/prijzenbestand) niet aangepast tot die datum. Gebruikt voor raamovereenkomsten, bv. met gemeentes, die een jaar vaste prijs eisen (uit opleiding, 24-10-2025).
+- **Vrije opmerking** (kort veld): bv. nummer van de raamovereenkomst of het contract (uit opleiding).
+
+### Vaste prijs omzetten naar een percentage (prijs voor de klant blijft gelijk)
+
+Procedure uit de gebruikershandleiding:
+
+1. Selecteer de prijsafspraaklijn in de lijst.
+2. Kies **F9 detail**; de detailfiche opent.
+3. Kies **F7 aanpassen/raadplegen**. "Speciale verkoopprijs" toont het vaste bedrag.
+4. Noteer de waarde bij **"Korting in percentage"**.
+5. Kies opnieuw **F7 aanpassen/raadplegen**.
+6. Wis de inhoud van "Speciale verkoopprijs".
+7. Vul bij "Korting in percentage" de genoteerde waarde in.
+8. Kies **F7 aanpassen/raadplegen**.
+9. **Controleer** of "Speciale verkoopprijs" nu dezelfde waarde toont als oorspronkelijk.
+10. Kies **F8 schrijf weg**. In de lijst is het percentage ingevuld en de vaste prijs leeg.
+
+Let op: in de opleiding (24-10-2025) gaf deze terugrekening in de live demo **niet** dezelfde prijs terug; de oorzaak is niet achterhaald. Stap 9 (controle) is dus essentieel: klopt de prijs niet, schrijf dan niet weg.
 
 ### Advies: percentage of vaste prijs?
 
@@ -82,56 +120,89 @@ Regels:
 
 ## Menu Beheer prijsafspraken (V.9.5)
 
-De opbouw volgens de opleiding (nummers van submenu's waar genoemd):
+Hoofdmenu V.9.5 volgens de gebruikershandleiding JAMADRINK 2.0 (het menu "kan volgende items bevatten"; niet elke installatie toont alles):
 
-### Bijvoegen van een nieuwe fiche
-
-| Keuze | Werking |
+| Toets | Menu-item |
 |---|---|
-| 1. Afspraak per afspraak | Klant + artikel (of leverancier, merk of groep) ingeven en de kortingen invullen. |
-| 2. Via de lijst van de artikels | Klant ingeven; zonder verdere selectie worden alle artikels getoond, of beperk tot één groep, leverancier of merk. Je vult de korting per artikel in de lijst in. |
-| 3. Op groepen | Klant ingeven; je ziet alle groepen en zet per groep de korting in één lijn. Aanbevolen als de groepen goed ingedeeld zijn: één lijn i.p.v. honderd artikels apart. |
-| 4. Alle artikels van een gemaakte offerte inladen in prijsafspraken | Klant ingeven, offerte kiezen (vergrootglas), bevestigen "wenst u deze offerte toe te voegen aan de prijsafspraken". De kortingen uit de offerte worden automatisch prijsafspraken. (Beheer offertes: zie handleiding 0266A.) |
+| 1 | Aanpassen/bekijken van een bestaande fiche |
+| 2 | Bijvoegen van een nieuwe fiche |
+| 3 | Schrappen van een bestaande fiche |
+| 4 | Afdrukken van een lijst |
+| 9 | Globaal aanpassen van de prijsafspraken |
+| A | Schrappen van ALLE prijsafspraken van één klant en/of artikel |
+| K | Kopiëren van ALLE prijsafspraken van één klant naar een andere |
+| L | Kopiëren van ALLE prijsafspraken van één artikel naar een ander |
 
-### Aanpassen/bekijken van een bestaande fiche
+Opmerking over de handleiding: de twee submenu-tabellen staan er **verwisseld** in (de tabel onder "V.9.5.2 Toevoegen" toont de keuzes van bewerken en omgekeerd). De genummerde paragraaftitels (V.9.5.1.1–3 en V.9.5.2.1–4) zijn wel consistent en komen overeen met de opleiding; die zijn hieronder gevolgd.
 
-| Keuze | Werking |
+### V.9.5.2 – Bijvoegen van een nieuwe fiche
+
+| Menupunt | Werking |
 |---|---|
-| 1. Afspraak per afspraak | Klant + artikel/leverancier/groep ingeven. Weinig gebruikt. |
-| 2. Via een lijst van de afspraken van 1 klant | **De aanbevolen manier om prijsafspraken te bekijken.** Klant ingeven; je krijgt alle afspraken van die klant. |
-| Via een lijst van de afspraken van 1 artikel | Toont welke klanten een afspraak hebben op dat artikel. |
+| **V.9.5.2.1** Afspraak per afspraak | Individuele prijsafspraak: klant (verplicht) + artikel, leverancier, merk, productgroep of een combinatie; kortingen invullen; geldig meteen of vanaf een datum. |
+| **V.9.5.2.2** Via een lijst van artikels | Zoekscherm waarin minimaal de klant ingevuld wordt; optioneel beperken tot één groep, leverancier of merk. Je krijgt alle producten die aan de filter voldoen, **inclusief de reeds bestaande afspraken**, en vult per artikel Kort%, Vaste VP of Kort/hl in. |
+| **V.9.5.2.3** Via een lijst van groepen | Klant kiezen; je krijgt alle productgroepen (bestaande groepsafspraken inbegrepen) en vult per groep de korting in. Aanbevolen als de groepen goed ingedeeld zijn: één lijn i.p.v. honderd artikels apart (advies uit opleiding). |
+| **V.9.5.2.4** Alle artikels van een gemaakte offerte | Klant kiezen, daarna de offerte. Je krijgt de lijst van alle producten uit de offerte en kan ze nog aanpassen voor ze prijsafspraken worden. De handleiding verwijst voor offertes naar punt **V.5.6**. In de opleiding kwam eerst nog een bevestigingsvraag om de offerte aan de prijsafspraken toe te voegen. |
 
-Hoe de lijst van één klant te lezen:
-- Kolommen: korting in %, vaste verkoopprijs, korting per hectoliter, uitgestelde korting (% of per hectoliter).
-- **Lees van onder naar boven**: helemaal onderaan staat de algemene korting van de klantenfiche (direct + uitgesteld), daarboven de afspraken op **groep**, daarboven op **leverancier**, bovenaan de individuele **artikels**. Wat hoger staat, heeft voorrang.
-- **F10 "geen korting"** op een lijn: zet uitdrukkelijk "geen korting" voor dat artikel.
-- **F9 detail**: detailscherm van de lijn (zie hoger).
+### V.9.5.1 – Aanpassen/bekijken van een bestaande fiche
+
+| Menupunt | Werking |
+|---|---|
+| **V.9.5.1.1** Afspraak per afspraak | Zoekvelden met "Klant" verplicht (automatisch aanvullen met TAB mogelijk); uit de resultaatlijst een fiche aanklikken en bewerken. Weinig gebruikt. |
+| **V.9.5.1.2** Via een lijst van de afspraken van 1 klant | **De aanbevolen manier om prijsafspraken te bekijken.** Enkel op klant zoeken. De lijst is alfabetisch gesorteerd op artikelomschrijving en is meteen aanpasbaar. |
+| **V.9.5.1.3** Via een lijst van de afspraken van 1 artikel | Enkel op artikel zoeken; toont welke klanten een afspraak hebben op dat artikel. Ook meteen aanpasbaar. |
+
+Hoe de lijst (V.9.5.1.2) te lezen:
+- Kolommen: Kort%, Vaste VP, Kort/hl, en volgens de opleiding ook de uitgestelde korting (% of per hectoliter).
+- **Lees van onderaan (achteraan) naar bovenaan (vooraan)**: de korting met de laagste voorrang staat helemaal onderaan (meestal de standaardkorting van de klant: direct + uitgesteld), daarboven de afspraken op **groep**, daarboven op **leverancier**, bovenaan de individuele **artikels**. Dit staat zo in de handleiding en in de opleiding.
+
+Toetsen in de lijsten V.9.5.1.2 en V.9.5.1.3 (uit de handleiding):
+
+| Toets | Werking |
+|---|---|
+| **F10 GEEN korting** | Markeert dat op dit artikel geen korting gegeven wordt. |
+| **F9 detail** | Opent de detailfiche van de geselecteerde lijn. |
+| **F8 neem aan en stop** | Slaat de gegevens op en verlaat het scherm. |
+| **F6 annuleer** | Zet de lijst terug op de waarden van bij het openen. **Sluit het venster niet**; daarna kies je F8 neem aan en stop om het scherm te verlaten. |
+| **F2 vorig / F3 volgend** | Bladeren. **Het wisselen van pagina slaat de gegevens die je in de lijst ingaf al op.** |
+
+"GEEN korting" terug ongedaan maken: lijn selecteren → **F9 detail** → **F10 korting** → **F8 schrijf weg**; terug in de lijst is de markering weg.
 
 Let op bij support:
-- Deze lijst is **bewerkbaar**; er is geen afgedwongen leesmodus. Laat een klant die enkel wil kijken niets intypen.
-- Volgens de gebruikershandleiding kan bladeren met **F2/F3** in zo'n invoerlijst reeds ingevoerde gegevens opslaan. Adviseer dus geen blind bladeren, bewaren (F8) of annuleren (F6) als de klant mogelijk per ongeluk iets heeft ingetypt en niet duidelijk is op welk scherm hij staat; laat dit beoordelen door een ervaren collega (bron: checkpoints 18 en 19).
-- Voor enkel raadplegen zonder risico: gebruik de afdruk naar PDF (zie hieronder).
+- Deze lijsten zijn **bewerkbaar**; er is geen leesmodus. Laat een klant die enkel wil kijken niets intypen.
+- Heeft de klant mogelijk per ongeluk iets ingetypt: **F6 annuleer** herstelt volgens de handleiding de waarden van bij het openen, maar wat vóór een paginawissel (F2/F3) werd ingetypt, is toen al opgeslagen. Of F6 ook dat nog terugdraait, staat niet in de bron (te verifiëren). Laat de klant in dat geval niet verder bladeren en vergelijk met een eerder afgedrukte lijst of een backup.
+- Voor enkel raadplegen zonder risico: de afdruk naar PDF (V.9.5.4), of de knop Prijsafspraken op de klantenfiche.
 
-### Schrappen
+### Schrappen (V.9.5.3 en V.9.5.A)
 
-- **Schrappen van één fiche**: klant + artikel/leverancier/groep ingeven; verwijdert één lijn. Weinig gebruikt.
-- **Schrappen van alle prijsafspraken van één klant of één artikel**: verwijdert in één keer alle afspraken van die klant, of alle afspraken van alle klanten op dat artikel. **Onherroepelijk: weg is weg** (enkel te herstellen via een backup).
+Schrappen kan **enkel ongedaan gemaakt worden door een back-up terug te zetten**.
 
-### Afdrukken van de lijst
+- **V.9.5.3 Individueel schrappen**: zoekscherm; een item in de lijst kiezen (of F8 zoek op) geeft de bevestigingsvraag.
+- **V.9.5.A Schrappen van alle prijsafspraken van één klant en/of artikel**: zoekscherm met filter op klant en/of artikel; daarna een bevestigingsscherm met de ingevulde zoektermen.
+- Toetsen in het bevestigingsscherm: **F1 stop** (terug naar het menu, niets schrappen), **F4 schrap** (schrappen), **F5 behoud** (niet schrappen), **F11 hoofdmenu**.
 
-- Selectie op klant (meest gebruikt), artikel, groep of leverancier.
-- Uitvoer naar **PDF** of **Excel**.
-- Zelfde opbouw: bovenaan de algemene korting van de klant; verder van onder naar boven groep → leverancier → artikel.
+### Afdrukken van een lijst (V.9.5.4)
 
-### Kopiëren
+- Zoekscherm om te filteren welke gegevens op de lijst komen (opleiding: klant is de meest gebruikte selectie; ook artikel, groep of leverancier).
+- Opties voor de afdruk, bv. **voor elke klant een aparte pagina**.
+- **F8 begin** drukt af; het PDF-icoon rechtsonder maakt een **PDF** en opent die. Volgens de opleiding kan de lijst ook naar **Excel** (niet vermeld in de handleiding).
+- Zelfde opbouw: algemene korting van de klant, verder van onder naar boven groep → leverancier → artikel.
 
-- **Van klant naar klant**: alle prijsafspraken van een klant kopiëren naar een andere klant (bv. een nieuwe school binnen een scholengroep).
-- **Van artikel naar artikel**: alle afspraken van een artikel kopiëren naar een ander artikel (bv. een product dat vervangen wordt door een opvolger).
-- Het programma toont vooraf wat het gaat doen.
+### Kopiëren (V.9.5.K en V.9.5.L)
 
-### Globaal aanpassen van prijsafspraken
+- **V.9.5.K – van één klant naar een andere**: bronklant en doelklant selecteren. Keuze tussen enkel de **ontbrekende** prijsafspraken kopiëren of de prijsafspraken van beide klanten **volledig gelijkstellen**. Voorbeeld: een nieuwe school binnen een scholengroep.
+- **V.9.5.L – van één artikel naar een ander**: bronartikel en doelartikel selecteren; optie om de afspraken met **vaste prijs over te slaan** (enkel de percentuele kopiëren). Gebeurt enkel voor wie op het doelartikel nog **geen** prijsafspraak heeft. Ook hier vermeldt de handleiding de keuze ontbrekende kopiëren / volledig gelijkstellen. Voorbeeld: een product dat vervangen wordt door een opvolger.
+- Na het kopiëren kom je terug in het menu. Volgens de opleiding toont het programma vooraf wat het gaat doen.
 
-Prijzen in afspraken verhogen met een **factor** (1,10 = +10 %) of een **offset** in euro (bv. +0,20). Volgens de opleider al jaren niet meer gebruikt; onzeker of dit nog correct werkt (te verifiëren vóór gebruik, altijd eerst backup).
+### Globaal aanpassen van de prijsafspraken (V.9.5.9)
+
+Past de bedragen in de prijsafspraken globaal aan met een **Factor** en/of een **Offset**:
+
+`Nieuwe waarde = (Oude waarde x Factor) + Offset`
+
+Voorbeeld uit de handleiding: oude waarde 200, factor 1,01, offset 50 → (200 x 1,01) + 50 = 252. Een factor 1,10 is dus +10 %; de offset is een vast bedrag dat erbij komt (de handleiding noemt de offset in de tekst een "percentage", maar de formule en het voorbeeld tonen een opgeteld bedrag; de opleiding spreekt van een bedrag in euro).
+
+Volgens de opleider wordt dit punt in de praktijk al jaren niet meer gebruikt. Er is geen voorbeeldweergave vooraf beschreven; neem eerst een backup.
 
 ## Uitgestelde ("semestriële") korting
 
@@ -174,15 +245,32 @@ Oplossing: vink bij het aanmaken van de creditnota **"korting herberekenen a.d.h
 | Klant krijgt een lagere korting dan zijn algemene korting | Een specifiekere prijsafspraak (groep, leverancier, artikel) vervangt de algemene korting, ook als ze lager is. |
 | Welke korting geldt: 10 % op artikel of 22 % algemeen? | De artikelafspraak: 10 %. Niet optellen, niet de hoogste nemen. |
 | Factuurprijs wijkt af van de prijsafspraak | Controleer of er een factuurpromotie (V.3.9) actief is op de factuurdatum, of er een prijs op datum geldt, en welk prijstype de klant heeft. |
-| Waar bekijk ik alle afspraken van een klant? | V.9.5 → Aanpassen/bekijken van een bestaande fiche → Via een lijst van de afspraken van 1 klant (keuze 2), of de lijst afdrukken naar PDF. |
+| Waar bekijk ik alle afspraken van een klant? | V.9.5.1.2 (Aanpassen/bekijken → Via een lijst van de afspraken van 1 klant), de lijst afdrukken naar PDF (V.9.5.4), of de knop Prijsafspraken op de klantenfiche. |
 | Uitgestelde korting te laag | Zie hierboven: afspraak is later ingegeven; herbereken a.d.h.v. huidige prijsafspraken. |
 | Prijsafspraken per ongeluk geschrapt | Niet herstelbaar in het programma; enkel via backup. |
-| Nieuwe klant moet dezelfde afspraken krijgen als een bestaande | Kopiëren van klant naar klant. |
+| Nieuwe klant moet dezelfde afspraken krijgen als een bestaande | V.9.5.K, kopiëren van klant naar klant. |
+| "GEEN korting" staat verkeerdelijk op een artikel | Lijn selecteren → F9 detail → F10 korting → F8 schrijf weg. |
+| Welke klanten hebben meer dan x % algemene korting? | Klanten uitschrijven naar Excel (V.9.2.7) met filter "Ondergrens (groter dan)" op het veld "Kortings %" (voorbeeld uit de handleiding). |
+
+## Tegenstrijdigheden tussen de bronnen
+
+| Onderwerp | Gebruikershandleiding JAMADRINK 2.0 | Opleiding 24-10-2025 | Hoe mee omgaan |
+|---|---|---|---|
+| Voorrangsvolgorde | Genummerd: artikel, leverancier, groep, klant. Maar één voorbeeldrij laat groep 15 % winnen van leverancier 12 % en rekent 7,50 i.p.v. 8,50. | Artikel, leverancier, groep, klant. | Genummerde volgorde volgen; het voorbeeld is vermoedelijk een fout in de handleiding. |
+| Submenu's van V.9.5.1 en V.9.5.2 | Tabellen staan verwisseld; paragraaftitels zijn correct. | Komt overeen met de paragraaftitels. | Paragraafnummers volgen (zoals in dit document). |
+| Vaste prijs omzetten naar percentage (F7) | Stappenplan waarbij de prijs gelijk blijft. | Live demo gaf niet dezelfde prijs terug; oorzaak onbekend. | Altijd de controlestap uitvoeren vóór F8 schrijf weg. |
+| Offset bij globaal aanpassen | Tekst zegt "percentage", formule en voorbeeld tonen een opgeteld bedrag. | Bedrag in euro (bv. 20 cent). | Formule volgen: bedrag. |
+| Kopiëren | Keuze "ontbrekende kopiëren" of "volledig gelijkstellen". | Zegt enkel dat alles gekopieerd wordt en dat vooraf getoond wordt wat er gebeurt. | Geen echte tegenspraak; handleiding is vollediger. |
+| Uitvoer van de lijst | Afdrukken of PDF. | Ook Excel. | Excel-optie te verifiëren op het scherm. |
+| Creditnota's uitgestelde korting | 0240B: punt onder V.8 "Aanmaken creditnota's van uitgestelde kortingen" (geen nummer). | Punt 7 onder facturatie, benaming "kredietnota's van semestriële kortingen". | Menunummer te verifiëren; de gebruikershandleiding behandelt dit punt niet in het gelezen deel. |
+
+Niet in de geschreven handleiding (gelezen deel), dus enkel uit de opleiding: "algemene korting toegestaan" op de groep, "Blokkeer korting" op de artikelfiche, tussenkomst leverancier, "prijs niet aanpassen via prijsbeheer tot datum", het negatieve investeringsbedrag bij uitgestelde korting.
 
 ## Bronnen
 
+- `gebruikershandleiding JAMADRINK 2.0.docx` — Jamadrink (hoofdstuk V.9.5 Beheer prijsafspraken, p. 23–29; extra nota's "Werking van kortingen" en "Vaste prijs omzetten naar percentage korting", p. 75–76; klantenfiche V.9.2.1 en filtervoorbeelden, p. 20 en 71)
 - `Prijsafspraken-20251024_131949-Opname van vergadering.txt` — Claude/Transcripties opleidingen (uit opleiding, 24-10-2025; volledig gelezen)
 - `0240B - Aanmaken creditnota's van uitgestelde kortingen.docx` — Jamadrink/Handleidingen modules
-- `00_CHECKPOINT_UITLEG_EN_PRIJSAFSPRAKEN.md` — 00_START_CLAUDE/18_UITLEG_EN_PRIJSAFSPRAKEN (kortingsvolgorde, waarschuwing F2/F3)
-- `00_CHECKPOINT_BEKIJKROUTE.md` — 00_START_CLAUDE/19_PRIJSAFSPRAKEN_BEKIJKROUTE (bekijkroute keuze 2, lijst is bewerkbaar)
+- `00_CHECKPOINT_UITLEG_EN_PRIJSAFSPRAKEN.md` — 00_START_CLAUDE/18_UITLEG_EN_PRIJSAFSPRAKEN (aandachtspunt F2/F3; nu rechtstreeks bevestigd in de handleiding)
+- `00_CHECKPOINT_BEKIJKROUTE.md` — 00_START_CLAUDE/19_PRIJSAFSPRAKEN_BEKIJKROUTE (bekijkroute, lijst is bewerkbaar)
 - `0296A - Factuurpromoties.docx` — Jamadrink/Handleidingen modules (voorrang promotieprijs)

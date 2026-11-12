@@ -22,9 +22,12 @@ Overzicht van het menu V.2 (voor zover in de bronnen vermeld):
 | V.2.9 | Beheer klantenkaarten (zie `kassa-klantenkaarten-cadeaubons-tegoedbons.md`) |
 | V.2.C | Prijscontrole kassaverkopen |
 | V.2.K | Klaarzetten alle gegevens voor kassa |
+| V.2.P | Beheer koppeling Prik & Tik (enkel als titel vermeld in de Jamadrink-handleiding; zie Freedelity in `kassa-klantenkaarten-cadeaubons-tegoedbons.md`) |
 | V.2.+ | Parameters (o.a. bepaling promotiepunten, benaming variabele betaalwijzen, kasverslag-parameters) |
 
 ## 2. Het kassamenu (bij het opstarten van de kassasoftware)
+
+De kassa zelf aanzetten: onderaan het scherm zit een rood lampje; druk dit in. Het lampje kleurt blauw en de kassa start op.
 
 Bij het opstarten van de kassasoftware verschijnt eerst het "Menu Beheer Key-conen Kassa". Het kan volgende punten bevatten (per klant instelbaar via `kasmenu.dat`):
 
@@ -70,13 +73,13 @@ Bovenaan de tickethoofding (zelf in te stellen via de parameters), daaronder: de
 |---|---|
 | 0–9 | Aantallen of bedragen ingeven. Bv. 2 artikels: druk 2 en dan de artikelknop of scan de barcode. |
 | X, +, -, . | Rekentoetsen; `-` gevolgd door IDEM verwijdert één stuk (zie IDEM). |
-| CLEAR | Wis het ingevoerde getal. |
+| CLEAR | Wis het ingevoerde getal, of wis de foutief gescande barcode. |
 | CLR_TICKT | Wis het volledige huidige ticket. |
 | PLU | Opent de productlijst van alle artikels. |
 | EAN | Geef een EAN-nummer/barcode manueel in en zoek hierop. |
 | IDEM | Voegt hetzelfde artikel nog eens toe (bv. 1 bak gescand maar het zijn er 2). `-` en dan IDEM: verwijdert één keer het zopas ingevoerde artikel (3 bakken ingegeven, het zijn er 2). |
 | STUKS | Stuks i.p.v. bakken: druk bv. 4, dan STUKS en kies/scan het artikel (4 losse flesjes). |
-| E.P. | Eenheidsprijs wijzigen: geef het bedrag in en druk E.P.; de prijs van het laatste artikel wordt aangepast. |
+| E.P. | Eenheidsprijs wijzigen: geef het bedrag in en druk E.P.; de prijs van het laatste artikel wordt aangepast. Dit heeft enkel invloed op het huidige ticket. |
 | Korting | Korting in euro op het laatste artikel: eerst bedrag, dan Korting. |
 | Kort. % | Korting in % op het laatste artikel: eerst percentage, dan Kort. %. |
 | % Alles | % korting op het hele ticket. Moet aan het **begin** van het ticket gebeuren, anders wordt de korting niet geregistreerd. |
@@ -86,16 +89,23 @@ Bovenaan de tickethoofding (zelf in te stellen via de parameters), daaronder: de
 | LEEGG=OK | Zet hetzelfde leeggoed dat bij de producten werd aangerekend ook als teruggegeven leeggoed op het ticket (klant koopt 2 bakken en brengt 2 lege bakken van hetzelfde mee). |
 | Horeca | Reken horecaprijzen aan i.p.v. kassaprijzen. |
 | KLT-KRT | Klantenkaart: klant kiezen uit de lijst; de punten worden berekend op het totaal van het ticket. |
-| Factuur | Maak een factuur of bon voor een klant: eerst de klant kiezen, dan artikels invoeren. |
+| Factuur | Maak een factuur of bon voor een klant: klant uit de lijst kiezen en artikels invoeren. Zie §3.3.1 voor de prijsbepaling. |
 | A.klt. | Andere klant: wissel tussen klant 1 en klant 2 (twee tickets tegelijk open per verkoper). |
 | Verk A / Verk B / Verk C | Open de kassa van verkoper A, B of C. |
-| Ticket | Open het huidige ticketoverzicht. |
+| Ticket | Open het huidige ticketoverzicht, met de knoppen Terug, <, > en WIS. Met de pijltjes loop je door de lijnen (of tik een lijn aan); **WIS** verwijdert de geselecteerde lijn van het ticket, samen met het leeggoed dat bij dat artikel hoorde. |
 | Diversen | Open het menu met diverse acties (§3.5). |
-| Alarm | Opent de geldlade (het label "Alarm" dient om gauwdieven te misleiden). |
+| Alarm | Opent de geldlade (het label "Alarm" dient om gauwdieven te misleiden). Er kan een 4-cijferige code ingesteld worden als extra beveiliging. |
 | Einde | Beëindig het ticket en ga naar het afrekenscherm (§3.4). |
 | Stoppen | Stop het kassaprogramma. Kan enkel als er geen enkel openstaand ticket meer is, bij geen enkele verkoper/klant. |
 | Terug | Ga terug naar het kassamenu. |
 | Ingestelde Key-conen | Openen de mappen (menu's) of kiezen het artikel dat achter de knop zit (beheer via V.2.2). |
+
+#### 3.3.1 Factuur op de kassa: welke prijs?
+
+- Kies je de klant **vóór** het ingeven van de artikels, dan rekent de kassa het **prijstype van de klant** aan. De kassa houdt **geen** rekening met prijsafspraken.
+- Geef je eerst de artikels in en kies je **daarna** de klant, dan wordt de **kassaprijs** aangerekend.
+- Staat op de klantenfiche in Jamadrink dat de klant eigen prijzen heeft op de kassa, dan vraagt de kassa bij "Einde" of de prijzen voor de klant ingeladen moeten worden.
+- Bij het afronden worden 2 tickets afgedrukt: één voor de klant en één voor de handelaar.
 
 Voorbeeld LEEGG=OK op het ticket:
 
@@ -115,9 +125,9 @@ Na "Einde" worden de Key-conen vervangen door de betaalknoppen:
 |---|---|
 | Geld | Betaal met cash. |
 | Betaalautomaat | Betaal via de gekoppelde betaalterminal (Bancontact, digitale maaltijdcheque e.d.). |
-| Krediet | Betaal met kredietkaart. |
+| Krediet | Betaal met kredietkaart (de Jamadrink-handleiding omschrijft deze knop als "betaal met factuurkaart" – de betekenis verschilt tussen de twee handleidingen; te verifiëren). |
 | Maaltijdcheque | Betaal met maaltijdcheques. |
-| Mobiel | Betaal met mobiel (bv. Payconiq). |
+| Mobiel | Betaal met mobiel (bv. Payconiq; vroeger Proton). |
 | Bon | Geef het bedrag in en druk Bon om dat bedrag af te trekken van het totaal. |
 | Eigen tegoedbon | Geef het bedrag in en druk op deze knop om een eigen tegoedbon te verrekenen. |
 | Cadeaubon | Ontvangen eigen cadeaubon verrekenen (bedrag ingeven, dan de knop). |
@@ -133,12 +143,12 @@ Na "Einde" worden de Key-conen vervangen door de betaalknoppen:
 | INKOMST | Bedrag ingeven en op deze knop drukken = inkomst in de kassa. |
 | Verkoop cadeaubon | Bedrag ingeven en op deze knop drukken = verkoop van een cadeaubon (i.p.v. een artikel "cadeaubon"). |
 | Aant.ex.ticket: # | Aantal exemplaren van het ticket dat afgedrukt wordt: 1, 2, 3, … of `-` (geen ticket). Standaard 1. |
-| Afdrukken kastoestand | Druk de kastoestand af. |
-| Afdrukken controleband | Druk de controleband van de kassa af. |
-| Bewaren bon | Bewaar het huidige ticket als bon zonder af te rekenen. |
+| Afdrukken kastoestand | Druk de kastoestand af. Dit kan ook doorheen de dag. |
+| Afdrukken controleband | Druk de controleband van de kassa af. Dit doe je aan het einde van de dag. |
+| Bewaren bon | Bewaar het huidige ticket als bon zonder af te rekenen. Zolang de bon niet is afgerekend, blijft hij bewaard. |
 | Opladen bon | Laad een bewaarde bon terug in om aan te passen of af te rekenen. |
 | PDA-Bons | Laad een bon in van een PDA (eerst de PDA connecteren). |
-| Opnieuw afdrukken van een klant-ticket: `<<` `#` `>>` + Druk af | Blader met << en >> naar het gewenste ticketnummer en druk "Druk af" om het opnieuw af te drukken. |
+| Opnieuw afdrukken van een klant-ticket: `<<` `#` `>>` + Druk af | Blader met << en >> naar het gewenste ticketnummer en druk "Druk af" om het opnieuw af te drukken. **Enkel tickets van vandaag** kunnen opnieuw afgedrukt worden. |
 | Lees Eid-kaart | Met een kaartlezer de gegevens van een identiteitskaart inlezen in het klantenbestand. De klant moet (GDPR) met een handtekening akkoord gaan met opslag/gebruik van zijn gegevens. |
 | Zet op ticket | Na het inlezen van de eID: de eID-gegevens op het ticket afdrukken. |
 | Loyalty card Freedelity | Punten geven op de Freedelity-klantenkaart (Prik&Tik). |
@@ -150,8 +160,8 @@ Na "Einde" worden de Key-conen vervangen door de betaalknoppen:
 
 Sluit een toetsenbord aan; blader met **F3 volgend** / F8 door de schermen. Je kan o.a. instellen:
 
-- hoofding en afsluiting (footer) van het kassaticket;
-- de boodschappen op het klantendisplay wanneer er geen ticket bezig is (reclameteksten);
+- hoofding en afsluiting (footer) van het kassaticket; een lege regel in de hoofding krijg je door enkel een `*` op die lijn te zetten;
+- de boodschappen op het klantendisplay wanneer er geen ticket bezig is (reclameteksten); lege vakken worden niet getoond;
 - instellingen i.v.m. (vreemde) munteenheden;
 - diverse parameters: btw-afronding, speciale toetskleuren, dagelijkse reset van ticketnummers (J/N), teksten van de variabele betaalwijzen, indeling schermtoetsenbord (AZERTY/ABC), creditkaarten toelaten via de knop "Betaalautomaat", …;
 - instellingen i.v.m. klantenkaarten (aantal punten per aankoopwaarde, punten volle kaart, waarde volle kaart);
@@ -226,7 +236,9 @@ Na elke wijziging aan artikels, prijzen, klanten, blokjes enz. moeten de gegeven
 - Kassa in hetzelfde netwerk: stop de kassa tot op het kassamenu en kies **N "Dagelijkse TRANSFER met de HOOFDCOMPUTER [JMS]"**.
 - Kassa op een andere locatie: punt **K** (via de servers van Jamadata); op de hoofdlocatie moet dan ook een snelkoppeling genomen worden.
 
-De transfer haalt de klaargezette gegevens op (artikels, prijzen, blokjes, …) en stuurt een kopie van de verkoopgegevens naar de hoofdcomputer.
+De transfer haalt de klaargezette gegevens op (artikels, prijzen, blokjes, …) en stuurt een kopie van de verkoopgegevens naar de hoofdcomputer (de kassa houdt zelf een kopie bij tot die handmatig gewist wordt).
+
+Het doorsturen van prijzen/prijswijzigingen naar de kassa is apart beschreven in `prijzen-doorsturen-naar-kassa.md`.
 
 Let op: neem de N niet tegelijk met of vlak na de K; anders kan `KASPLU.DAT` nog niet bijgewerkt zijn (zie `kassa-faq-en-storingen.md`).
 
@@ -331,6 +343,7 @@ Het veld "GRB-rekening" op de artikelfiche en bij bons/facturatie moet door Jama
 ## Bronnen
 
 - `kassa/gebruikershandleiding keyConen KASSA 2.0.docx`
+- `Jamadrink/gebruikershandleiding JAMADRINK 2.0.docx` (hoofdstukken V.2 Beheer Key-conen kassa en K Werking Kassa, handleidingpagina's 50–62)
 - `Jamadrink/Handleidingen modules/0290A - Ingeven blokjes (KeyConen).docx`
 - `kassa/FunctieBarcodesKassa.pdf`
 - `Onenote/KASSA.pdf` (05 Omzet van de Kassa genereren; 09 Barcodes toevoegen aan artikels via de Kassa; 14 Lotto installeren) – vollediger dan `kassa/KASSA.pdf`
