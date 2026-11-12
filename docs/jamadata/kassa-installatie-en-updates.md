@@ -57,7 +57,7 @@ Bij levering wordt per kassa genoteerd: datum, klant, kassa (PanelPos) + serienu
 ## 2. Aanmelden op de kassa (Windows)
 
 - De kassa gebruikt een **afbeeldingswachtwoord** (aanmelden door op de Jamadata-icoontjes te drukken; volgorde: zie interne bron "afbeeldingswachtwoord kassa.pdf"). Dit werkt zonder toetsenbord.
-- Vraagt de kassa bij het opstarten om een gewoon (getypt) wachtwoord, dan is het afbeeldingswachtwoord waarschijnlijk 3 keer fout ingegeven. Geef dan het gewone wachtwoord van de gebruiker `kassa` in (wachtwoord: zie interne bron; met hoofdletter, cijfer en uitroepteken). Daarna werkt het afbeeldingswachtwoord opnieuw; zo niet, contacteer de helpdesk.
+- Vraagt de kassa bij het opstarten om een gewoon (getypt) wachtwoord, dan is het afbeeldingswachtwoord waarschijnlijk 3 keer fout ingegeven. Geef dan het gewone wachtwoord van de gebruiker `kassa` in (wachtwoord: zie interne bron). Daarna werkt het afbeeldingswachtwoord opnieuw; zo niet, contacteer de helpdesk.
 - Wijzigt de klant het wachtwoord zonder dit aan Jamadata mee te delen, dan vervalt de support op die kassa.
 - Melding **"!!!Ongeldige serienummer!!!"** bij het starten van het kassaprogramma: overrulen met **F4 en dan F10** (komt voor na het overzetten van een kassys.dat naar andere hardware, en bij een mobiele kassa).
 
