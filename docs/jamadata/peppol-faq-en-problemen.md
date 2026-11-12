@@ -117,5 +117,5 @@ Het document `Codabox Peppol.pdf` (OneNote-export "Peppol aanmaken") beschrijft 
 - `2240A - Jamadata Peppol Handleiding en automatisch mailen V4.3.docx` (Jamadrink/Handleidingen modules)
 - `Elektronische facturen via CodaBox.docx` (Jamadrink/Handleidingen modules)
 - `Codabox Peppol.pdf` (Jamadrink) – enkel vermeld als niet van toepassing
-- Transcripties opleidingen: `Peppol_20250703_090232.txt`; `JJD New installation = Peppol Fout onoplosbaar-20260624_135151-Opname van vergadering.txt`; `COR New installation omwille van Peppol problemen.-20260624_155118-Opname van vergadering.txt`
+- Transcripties opleidingen: `Peppol_20250703_090232.txt`; `[klant] New installation = Peppol Fout onoplosbaar-20260624_135151-Opname van vergadering.txt`; `[klant] New installation omwille van Peppol problemen.-20260624_155118-Opname van vergadering.txt`
 - 00_START_CLAUDE / `09_SMTP_OVERDRACHT_20261110_c84a219d/ITERATIE_1_INSTRUCTIES.txt` (CASE-001: 8-H-C en 8-H-1-1)

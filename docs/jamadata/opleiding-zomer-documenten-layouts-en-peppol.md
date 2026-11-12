@@ -126,4 +126,4 @@ Map "Claude/Transcripties opleidingen" (SharePoint, Jamadata ChatBot):
 - Kennisoverdracht Jamadata-20260702_110347-Opname van vergadering.txt
 - Kennisoverdracht Jamadata-20260707_100958-Opname van vergadering.txt
 - Kennisoverdracht Jamadata-20260804_152719-Opname van vergadering.txt
-- Kennisoverdracht Jamadata (Willow)-20260806_103718-Opname van vergadering.txt
+- Kennisoverdracht Jamadata-20260806_103718-Opname van vergadering.txt

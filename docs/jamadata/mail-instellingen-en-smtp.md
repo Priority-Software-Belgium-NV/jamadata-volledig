@@ -111,4 +111,4 @@ Onder de Jamadata-map staat de map **`mail`** met o.a.:
 - Transcriptie `SMTP AUTO MATISCH MAILEN JAMADATA.txt` (Transcripties opleidingen)
 - `KA_JAMADATA_SMTP_AUTOMATISCH_MAILEN_B3_20261014.md` (Claude/JAMADATA_KENNISBANK_CLAUDE_20261029) – goedgekeurd artikel op basis van bovenstaande opname
 - 00_START_CLAUDE: `08_SMTP_INTAKE_20261110_b93e51c4/00_CHECKPOINT_SMTP_INTAKE.md`, `09_SMTP_OVERDRACHT_20261110_c84a219d/ITERATIE_1_INSTRUCTIES.txt` (SMTP-anker: route + → J → 5 → F8, bewaren en testmail zijn aparte handelingen)
-- Transcripties `JJD New installation = Peppol Fout onoplosbaar-20260624_135151-...txt` en `COR New installation omwille van Peppol problemen.-20260624_155118-...txt` (mappenstructuur `mail`, `jms.ini`)
+- Transcripties `[klant] New installation = Peppol Fout onoplosbaar-20260624_135151-...txt` en `[klant] New installation omwille van Peppol problemen.-20260624_155118-...txt` (mappenstructuur `mail`, `jms.ini`)

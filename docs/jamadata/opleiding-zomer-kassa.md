@@ -1,4 +1,4 @@
-# Kassa (Icone-kassa): praktijkkennis uit de opleidingen juni–juli 2026
+# Kassa (Key-Conen kassa): praktijkkennis uit de opleidingen juni–juli 2026
 
 Gebruik dit document voor: helpdeskvragen over de dagelijkse bediening van de Jamadata-kassa (knoppen bovenaan, Diverse, bons/facturen op de kassa, cadeaubons, bewaarbons), dagtotalen (F9 Controle, Z-totaal), de communicatiefout bij facturatie op de kassa, het oude offline bonsysteem, barcodes die op de kassa werden toegevoegd, kassablokjes, de transfert kassa ↔ server (K en N), het verkoopbestand (KASLOK), het kasverslag, de verkooplijsten/controlelijsten, kassapromoties (o.a. Prik&Tik-folder) en enkele hardwareproblemen.
 

@@ -75,4 +75,4 @@ Er bestaat een oudere handleiding `OUD2800A - Mailsjablonen aanpassen.docx`; die
 - `Elektronische facturen via CodaBox.docx` (Jamadrink/Handleidingen modules) – lijst verzonden facturen/mails
 - `Jamadata Peppol FAQ.docx` (Jamadrink) – automatisch mailen naast Peppol
 - `HOWTO-MAIL instellingen.docx` (Jamadrink) – sjabloon zonder opmaak
-- Transcripties `JJD New installation = Peppol Fout onoplosbaar-20260624_135151-...txt` en `COR New installation omwille van Peppol problemen.-20260624_155118-...txt` (mappen `mail\sent` en `mail\templates`)
+- Transcripties `[klant] New installation = Peppol Fout onoplosbaar-20260624_135151-...txt` en `[klant] New installation omwille van Peppol problemen.-20260624_155118-...txt` (mappen `mail\sent` en `mail\templates`)

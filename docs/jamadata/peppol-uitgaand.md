@@ -123,5 +123,5 @@ Dit is enkel relevant voor oude installaties. Op huidige installaties gebeurt he
 - `Elektronische facturen via CodaBox.docx` (Jamadrink/Handleidingen modules)
 - `Jamadata Peppol FAQ.docx` (Jamadrink)
 - `HOWTO-aanvragen en installeren elektronische facturatie_UBL2.1_PEPPOL_Codabox.docx` (Jamadrink) – historisch
-- Transcripties opleidingen: `Peppol_20250703_090232.txt`, `JJD New installation = Peppol Fout onoplosbaar-20260624_135151-Opname van vergadering.txt`
+- Transcripties opleidingen: `Peppol_20250703_090232.txt`, `[klant] New installation = Peppol Fout onoplosbaar-20260624_135151-Opname van vergadering.txt`
 - 00_START_CLAUDE / `09_SMTP_OVERDRACHT_20261110_c84a219d/ITERATIE_1_INSTRUCTIES.txt` (anker 8-H-C / 8-H-1-1) en `08_SMTP_INTAKE_20261110_b93e51c4/00_CHECKPOINT_SMTP_INTAKE.md`
