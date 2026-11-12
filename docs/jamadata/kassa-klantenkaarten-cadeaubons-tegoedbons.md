@@ -229,7 +229,7 @@ Geef eenmalig in de **kasverslag-parameters** de juiste grootboekrekening in voo
 
 ### 5.1 Werking
 
-- Bij een **negatief ticket** (bv. enkel leeggoed terug) vraagt de kassa of er een tegoedbon afgedrukt moet worden. Zo ja, dan wordt die afgedrukt in plaats van geld terug te geven.
+- Bij een **negatief ticket** vraagt de kassa of er een tegoedbon afgedrukt moet worden. Zo ja, dan wordt die afgedrukt in plaats van geld terug te geven.
 - De tekst op de tegoedbon is aan te passen via kasparm (kassamenu punt 3, parameter "tekst eigen tegoedbon").
 - Een ingeleverde tegoedbon wordt verwerkt met de betaalknop **"Eigen tegoedbon"** (na Einde): bedrag ingeven en op de knop drukken.
 
