@@ -152,7 +152,9 @@ Vul de periode in maanden in (bv. 1 - 12) en eventueel het jaar. Druk op het Exc
 ### Mailen naar Suntory
 Is de Excel in orde, druk dan op het grote mail-icoon. Er wordt een mail aangemaakt met als bijlage een **CSV-bestand** met dezelfde gegevens als de Excel. Verstuur de mail.
 
-## 7. Gekende problemen
+## 7. Gekende problemen en controlepunten
+
+De controlepunten hieronder zijn afgeleid uit de werking die de handleidingen beschrijven; de handleidingen bevatten zelf geen aparte probleemlijst, tenzij uitdrukkelijk vermeld.
 
 | Probleem | Oorzaak / oplossing |
 |---|---|
@@ -163,9 +165,6 @@ Is de Excel in orde, druk dan op het grote mail-icoon. Er wordt een mail aangema
 | AB InBev: cijfers veel hoger dan de maandomzet | Normaal: het bestand bevat het cumulatief van januari t.e.m. de gekozen maand |
 | AB InBev: waar staat het bestand? | Mijn Documenten > Jamadata > Diversen. Het moet manueel geüpload worden bij AB InBev/KPMG |
 | Suntory: XLS met markeringen wordt niet gevonden | Bestand staat niet in `\Jamadata\share` of `\JamaShare`, of de bestandsnaam is gewijzigd |
-| Suntory: mail gaat naar het verkeerde adres | E-mailadres in de instellingen (tandwieltje) aanpassen |
-| Mail of verzending start niet | Valt buiten deze handleidingen; controleer de algemene mailinstellingen van Jamadata |
-| Cijfers van de lopende maand zijn onvolledig | De modules steunen op maandstatistieken/historieken |
 
 ## 8. Onzeker / te verifiëren
 - **Suntory**: `2398A - Suntory export-module NEW NEW.docx` en `Suntory export-module.pdf` (Jamadrink-map) beschrijven variant A (instellingen + F9 artikelgroepen + F9 verplichte klanten). `2398A - Suntory export-module.docx` beschrijft variant B (tandwielmenu met punten 1 t/m 5 en +, inclusief "Custom Total SOFT"). De bestandsnaam suggereert dat "NEW NEW" de recentste is, maar variant B is inhoudelijk uitgebreider. Welke versie een klant heeft, moet op het scherm van de klant nagekeken worden.

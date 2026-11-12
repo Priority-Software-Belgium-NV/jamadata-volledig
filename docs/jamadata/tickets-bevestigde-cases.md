@@ -144,8 +144,8 @@ Een stroomonderbreking wordt als mogelijke oorzaak genoemd, niet als bewezen dia
 
 SMTP-server, poort, account, TLS en authenticatie zijn afhankelijk van de klantconfiguratie.
 
-1. Raadpleeg het ticket en de goedgekeurde configuratie van deze installatie. Het bestand `IMS.ini` dient als referentie; het kan wachtwoorden bevatten en hoort niet in tickets of documentatie.
-2. Open in Jamadata: **+ → J (IMS-instellingen) → 5 (E-mail-instellingen)**, kies het profiel en gebruik **F8**.
+1. Raadpleeg het ticket en de goedgekeurde configuratie van deze installatie. Het bestand `jms.ini` dient als referentie; het kan wachtwoorden bevatten en hoort niet in tickets of documentatie.
+2. Open in Jamadata: **+ → J (JMS-instellingen) → 5 (E-mail-instellingen)**, kies het profiel en gebruik **F8**.
 3. Bekijk de relay-/SMTP-instellingen: server, poort, account, authenticatiemethode en beveiliging/TLS. Neem enkel waarden over die voor deze klant gelden.
 4. Leg de bestaande instellingen vast voor je iets wijzigt, zodat je kan terugkeren. De instellingen gelden voor de server en kunnen vanaf een werkpost worden ingesteld.
 5. Bewaar en gebruik **Stuur testmail**.

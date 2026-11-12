@@ -7,7 +7,7 @@ Gebruik dit document voor: vragen over het doorgeven van verkochte aantallen aan
 | Module | Doel | Waar |
 |---|---|---|
 | Coca-Cola exportmodule (versie 2020) | Maandelijkse verkochte aantallen per klant in Excel uitschrijven en mailen naar Coca-Cola | V.4, onderaan het rode Coca-Cola-icoon |
-| Coca-Cola module MODEL II (oudere variant) | Idem, maar met koppeling van eigen artikels aan een vaste lijst Coca-Cola-producten en selectie via het klantveld "Verplichting soft" | V.4, onderaan het rode Coca-Cola-icoon |
+| Coca-Cola module MODEL II (andere variant, vermoedelijk ouder) | Idem, maar met koppeling van eigen artikels aan een vaste lijst Coca-Cola-producten en selectie via het klantveld "Verplichting soft" | V.4, onderaan het rode Coca-Cola-icoon |
 | Promo-orders Coca-Cola | Bestellingen die de Coca-Cola-vertegenwoordiger bij een eindklant opnam, ophalen en omzetten in leveringsbon/factuur, met terugmelding aan Coca-Cola | V.8, in het ingavescherm van leveringsbons/facturen, onderaan het rode Coca-Cola-icoon |
 
 De exportmodules zijn gebaseerd op de uitgebreide statistieken/historieken. De cijfers zijn daardoor per maand beschikbaar, niet per dag.
@@ -50,9 +50,9 @@ Druk op het grote mail-icoon. Er wordt een mail aangemaakt met de Excel als bijl
 ### Verschil met "versie 2017 - Old layout"
 De handleiding van 2017 beschrijft dezelfde werkwijze en dezelfde toetsen (F9, F8, F3, F2, Excel-icoon, mail-icoon, Full Universe). Enkel de schermlayout verschilt. Voor support maakt het inhoudelijk geen verschil.
 
-## 3. Coca-Cola module MODEL II (oudere variant)
+## 3. Coca-Cola module MODEL II
 
-Deze variant komt nog voor op oudere installaties. Kenmerkend: artikels worden één voor één gekoppeld aan een vaste lijst van een 60-tal horecaproducten van Coca-Cola, en de klantselectie gebeurt met een letter op de klantfiche.
+De handleiding is niet gedateerd. De werkwijze (letter op de klantfiche, mailen vanuit Excel) wijst op een oudere of alternatieve variant; of een klant deze variant of versie 2020 heeft, moet op het scherm van de klant nagekeken worden (te verifiëren). Kenmerkend: artikels worden één voor één gekoppeld aan een vaste lijst van een 60-tal horecaproducten van Coca-Cola, en de klantselectie gebeurt met een letter op de klantfiche.
 
 ### Waar
 Menu **V.4**, onderaan het rode Coca-Cola-icoon.
@@ -110,16 +110,17 @@ Menu **V.8**, bij het ingeven van leveringsbons of facturen: op het scherm waar 
 - **Status manueel doorgeven**: ga op een order staan en klik rechtsonder op het groene plusteken. Keuzes: "Order ontvangen", "Order geleverd/gefactureerd", of het order schrappen.
 - **Overzicht ingegeven/afgewerkte orders**: klik in het overzichtsscherm rechtsonder op het groene overzichtsicoon. Eerst verschijnt het scherm "Ingegeven", daarna "Afgewerkte" orders.
 
-## 5. Gekende problemen
+## 5. Gekende problemen en controlepunten
+
+De controlepunten hieronder zijn afgeleid uit de werking die de handleidingen beschrijven; de handleidingen bevatten zelf geen aparte probleemlijst, tenzij uitdrukkelijk vermeld.
 
 | Probleem | Oorzaak / oplossing |
 |---|---|
 | Artikel ontbreekt in de export of op de controlelijst (F2) | Op de artikelfiche staat niet de leverancier/producent die in de parameters van de module is ingesteld. Controleer ook of in de parameters "leverancier" dan wel "producent" correct gekozen is |
 | Klant ontbreekt in de export | Klant staat op rood (niet doorgeven) in F9, of (Model II) de letter in "Verplichting soft" ontbreekt of wijkt af van de selectie |
-| Cijfers lijken onvolledig voor de lopende maand | De export steunt op de maandstatistieken/historieken; cijfers zijn per maand beschikbaar |
 | Model II: artikel staat niet in de Coca-Cola-lijst | Het hoort niet bij de 60 horecaproducten; niet koppelen, F10 wis referentie |
 | Model II: TG-code onbekend | Opvragen bij de vertegenwoordiger van Coca-Cola |
-| Promo-orders: na het download-icoon verschijnt een scherm dat om parameters vraagt in plaats van de orderlijst | De verbindingsparameters zijn niet ingevuld. Dit moet door een Jamadata-medewerker ingesteld worden (gegevens: zie interne bron) |
+| Promo-orders: na het download-icoon verschijnt een ander scherm (melding) in plaats van de orderlijst | Vermeld in de handleiding: de parameters zijn niet juist ingevuld. Een Jamadata-medewerker moet de juiste parameters invullen (gegevens: zie interne bron) |
 | Promo-orders: lijnen blijven rood | Klant of artikel is nog niet gekoppeld; koppel via het groene link-icoon |
 | Excel bevat een tweede tabblad met klanten zonder Coca-Cola-omzet | De optie "Export Full Universe data" staat aangevinkt |
 
