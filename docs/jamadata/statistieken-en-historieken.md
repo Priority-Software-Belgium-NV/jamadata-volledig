@@ -143,4 +143,4 @@ Beschikbaar vanaf de Standaard-versie.
 - `0239C - Raadplegen grafieken.docx` — Jamadrink/Handleidingen modules
 - `0213D - Controleren inhoud en aantal per bak op artikelfiches.docx` — Jamadrink/Handleidingen modules
 - `0240B - Aanmaken creditnota's van uitgestelde kortingen.docx` — Jamadrink/Handleidingen modules
-- `Mario S Prijsafspraken-20251024_131949-Opname van vergadering.txt` — Claude/Transcripties opleidingen (uit opleiding, 24-10-2025)
+- `Prijsafspraken-20251024_131949-Opname van vergadering.txt` — Claude/Transcripties opleidingen (uit opleiding, 24-10-2025)

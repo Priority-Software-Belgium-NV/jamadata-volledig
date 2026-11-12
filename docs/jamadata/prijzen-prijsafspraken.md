@@ -181,7 +181,7 @@ Oplossing: vink bij het aanmaken van de creditnota **"korting herberekenen a.d.h
 
 ## Bronnen
 
-- `Mario S Prijsafspraken-20251024_131949-Opname van vergadering.txt` — Claude/Transcripties opleidingen (uit opleiding, 24-10-2025; volledig gelezen)
+- `Prijsafspraken-20251024_131949-Opname van vergadering.txt` — Claude/Transcripties opleidingen (uit opleiding, 24-10-2025; volledig gelezen)
 - `0240B - Aanmaken creditnota's van uitgestelde kortingen.docx` — Jamadrink/Handleidingen modules
 - `00_CHECKPOINT_UITLEG_EN_PRIJSAFSPRAKEN.md` — 00_START_CLAUDE/18_UITLEG_EN_PRIJSAFSPRAKEN (kortingsvolgorde, waarschuwing F2/F3)
 - `00_CHECKPOINT_BEKIJKROUTE.md` — 00_START_CLAUDE/19_PRIJSAFSPRAKEN_BEKIJKROUTE (bekijkroute keuze 2, lijst is bewerkbaar)

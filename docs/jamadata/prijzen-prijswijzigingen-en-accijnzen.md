@@ -220,5 +220,5 @@ Ook foutief ingevulde waarden (niet alleen lege) worden zo opgespoord.
 - `xxxxx - Accijnsverhoging.docx` (inhoud identiek aan het algemene deel van 02xxB) — Jamadrink/Handleidingen modules
 - `0213D - Controleren inhoud en aantal per bak op artikelfiches.docx` — Jamadrink/Handleidingen modules
 - `0219C - Deelverpakkingen (Clips).docx` — Jamadrink/Handleidingen modules
-- `Mario S Prijsafspraken-20251024_131949-Opname van vergadering.txt` — Claude/Transcripties opleidingen (uit opleiding, 24-10-2025)
+- `Prijsafspraken-20251024_131949-Opname van vergadering.txt` — Claude/Transcripties opleidingen (uit opleiding, 24-10-2025)
 - `00_CHECKPOINT_PRIJSDATUM.md` — 00_START_CLAUDE/17_PRIJSDATUM (enkel de inhoudelijke nuance over groene prijs en V.3.5)
